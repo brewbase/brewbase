@@ -1,9 +1,10 @@
-create table savedbeer (
-    id serial primary key,
-    description text,
-    imageurl text,
-    name text,
-    type text,
-    breweryId varchar(20),
-    userId varchar(40)
+CREATE TABLE savedbeer (
+    id SERIAL PRIMARY KEY,
+    description TEXT,
+    imageurl TEXT,
+    name TEXT,
+    type TEXT,
+    breweryId VARCHAR(20),
+    userId INTEGER,
+    CONSTRAINT fk_savedbeer_users FOREIGN KEY (userId) REFERENCES users("auth0id")
 );
