@@ -4,5 +4,6 @@ create table savedbeer (
     imageurl text,
     name text,
     type text,
-    breweryId varchar(20)
+    breweryId varchar(20),
+    userId varchar(40)
 );

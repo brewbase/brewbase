@@ -17,5 +17,10 @@
   "bugs": {
     "url": "https://github.com/brewbase/brewbase/issues"
   },
-  "homepage": "https://github.com/brewbase/brewbase#readme"
+  "homepage": "https://github.com/brewbase/brewbase#readme",
+  "dependencies": {
+    "body-parser": "^1.16.1",
+    "express": "^4.14.1",
+    "massive": "^2.6.0"
+  }
 }
