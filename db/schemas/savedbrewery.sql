@@ -6,5 +6,5 @@ CREATE TABLE savedbrewery(
     description TEXT,
     locality TEXT,
     userId INTEGER,
-    CONSTRAINT fk_savedbrewery_users FOREIGN KEY (userId) REFERENCES users("auth0id")
+    CONSTRAINT fk_savedbrewery_user FOREIGN KEY (userId) REFERENCES user("auth0id")
 );
