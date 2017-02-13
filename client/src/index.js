@@ -1,17 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Provider} from 'react-redux';
 import App from './App';
-import TwentyOneAndOverBox from './components/TwentyOneAndOverBox';
-import IsOverTwentyOne from './components/IsOverTwentyOne';
-import NotOverTwentyOne from './components/NotOverTwentyOne';
+import configureStore from './store/configureStore';
 import './index.css';
 
+const store = configureStore();
+
 ReactDOM.render(
-    <Router history={browserHistory}>
-        <Route path='/' component={TwentyOneAndOverBox} />
-        <Route path='/home' component={IsOverTwentyOne} />
-        <Route path='/denied' component={NotOverTwentyOne} />
-    </Router>,
+    <Provider store={store}>
+        <App />
+    </Provider>,
     document.getElementById('root')
 );
