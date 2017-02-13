@@ -4,5 +4,6 @@ create table savedbrewery(
     website text,
     imageurl text,
     description text,
-    locality text
+    locality text,
+    userId varchar(40)
 );
