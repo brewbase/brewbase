@@ -6,23 +6,22 @@ const db = massive.connectSync({
   connectionString: 'postgres://postgres:@localhost/FILL IN NAME'
 });
 
-//Require controllers here
+const fav_beer_ctrl = require('./db/controllers/favoriteBeer');
+const fav_brewery_ctrl = require('./db/controllers/favoriteBrewery');
 
 const app = module.exports = express();
 app.use(express.static(__dirname + '/client'));
 app.use(bodyParser.json());
 app.set('db', db);
 
-app.get('/api/favoriteBreweries');
-app.get('/api/favoriteBrews');
+app.get('/api/favoriteBreweries', fav_brewery_ctrl.index);
+app.get('/api/favoriteBrews', fav_beer_ctrl.index);
 
-app.post('/api/favoriteBreweries');
-app.post('/api/favoriteBrews');
+app.post('/api/favoriteBreweries', fav_brewery_ctrl.create);
+app.post('/api/favoriteBrews', fav_beer_ctrl.create);
 
-//Need put endpoint?
-
-app.delete('/api/favoriteBreweries/:breweryId');
-app.delete('/api/favoriteBrews/:beerId');
+app.delete('/api/favoriteBreweries/:breweryId', fav_brewery_ctrl.destroy);
+app.delete('/api/favoriteBrews/:beerId', fav_beer_ctrl.destroy);
 
 
 app.listen(3000, () =>{
