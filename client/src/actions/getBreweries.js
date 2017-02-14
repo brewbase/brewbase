@@ -24,7 +24,7 @@ import startFetchingBreweries from './startFetchingBreweries';
 // }
 
 function fetchBreweries() {
-    return fetch('https://api.brewerydb.com/v2/locations?region=utah&key=1168087dc16a437c599b8e48ca2d7c91&format=json')
+    return fetch('https://api.brewerydb.com/v2/locations?region=utah')
 }
 
 export default function getBreweries(input){
