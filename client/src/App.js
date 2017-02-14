@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
-import {Router, Route, IndexRoute, browserHistory} from 'react-router';
+import {Router, Route, browserHistory} from 'react-router';
 import TwentyOneAndOverBox from './components/TwentyOneAndOverBox';
-import IsOverTwentyOne from './components/IsOverTwentyOne';
-import NotOverTwentyOne from './components/NotOverTwentyOne';
+import Breweries from './components/Breweries';
 
 class App extends Component {
     render() {
         return (
             <Router history={browserHistory}>
-                <Route path='/' component={TwentyOneAndOverBox} />
-                <Route path='/home' component={IsOverTwentyOne} />
-                <Route path='/denied' component={NotOverTwentyOne} />
+                <Route path='/' component={Breweries} />
+                <Route path='/denied' component={Breweries} />
             </Router>
         );
     }
