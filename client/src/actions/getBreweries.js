@@ -1,19 +1,8 @@
 import startFetchingBreweries from './startFetchingBreweries.js'
 import receiveBreweries from './receiveBreweries.js'
 import breweriesError from './breweriesError.js'
+import states from '../data/states.js'
 import config from '../../config.js'
-
-const states = ['alabama','alaska','american aamoa','arizona','arkansas',
-'california','colorado','connecticut','delaware','district of columbia',
-'micronesia','florida','georgia','guam','hawaii',
-'idaho','illinois','indiana','iowa','kansas','kentucky','louisiana','maine',
-'marshall islands','maryland','massachusetts','michigan','minnesota',
-'mississippi','missouri','montana','nebraska','nevada','new hampshire',
-'new jersey','new mexico','new York','north carolina','north Dakota',
-'northern mariana islands','ohio','oklahoma','oregon','palau','pennsylvania',
-'puerto rico','rhode island','south carolina','south dakota','tennessee',
-'texas','utah','vermont','virgin island','virginia','washington',
-'west virginia','wisconsin','wyoming'];
 
 const toLowerCase = (text) => text.toLowerCase()
 
