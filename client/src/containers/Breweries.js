@@ -1,30 +1,30 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import Brewery from '../components/Brewery';
 import getBreweries from '../actions/getBreweries';
-import {connect} from 'react-redux';
 
 class Breweries extends React.Component {
-    render(){
+    render() {
         return(
             <div>
-                <button onClick={() => this.props.handleBreweryOnClick()}>
+                <button onClick={() => this.props.handleBreweryOnClick('DENVER')}>
                     Get Breweries
                 </button>
                 {
                     this.props.error ?
                     <div>{this.props.error.toString()}</div> :
-                        null
+                    null
                 }
                 {
                     this.props.fetching ?
                     <div>Fetching</div> :
-                        null
+                    null
                 }
-                {this.props.breweries.map(b =>(
-
+                {this.props.breweries.map(b => (
                     <Brewery
                         name={b.brewery.name}
-                        key={b.brewery.id}/>
+                        key={b.brewery.id}
+                    />
                 ))}
             </div>
         )
@@ -41,9 +41,8 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => (
     {
-        handleBreweryOnClick: () => {
-            console.log('hello');
-            dispatch(getBreweries())
+        handleBreweryOnClick: (input) => {
+            dispatch(getBreweries(input))
         }
     }
 )
