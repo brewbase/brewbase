@@ -1,6 +1,7 @@
-import receiveBreweries from './receiveBreweries';
-import breweriesError from './breweriesError';
-import startFetchingBreweries from './startFetchingBreweries';
+import startFetchingBreweries from './startFetchingBreweries.js'
+import receiveBreweries from './receiveBreweries.js'
+import breweriesError from './breweriesError.js'
+import config from '../../config.js'
 
 // const states = ['Alabama','Alaska','American Samoa','Arizona','Arkansas',
 // 'California','Colorado','Connecticut','Delaware','District of Columbia',
@@ -14,28 +15,15 @@ import startFetchingBreweries from './startFetchingBreweries';
 // 'Texas','Utah','Vermont','Virgin Island','Virginia','Washington',
 // 'West Virginia','Wisconsin','Wyoming'];
 
-// function fetchBreweries(input){
-//     for(var i = 0; i < states.length; i++){
-//         if (true) {
-//             return fetch(`http://api.brewerydb.com/v2/locations?region=utah`);
-//         }
-//     }
-//     return fetch(`http://api.brewerydb.com/v2/locations?locality=denver`);
-// }
-
-function fetchBreweries() {
-    return fetch('https://api.brewerydb.com/v2/locations?region=utah')
-}
-
-export default function getBreweries(input){
-    dispatch(startFetchingBreweries());
-    return function(dispatch){
-        return fetchBreweries(input)
-        .then(response) =>{
-            return dispatch(receiveBreweries(response.data))
-        }
-        .catch(err) => {
-            return dispatch(breweriesError(err))
-        }
-    };
+export default function getBreweries() {
+    return function(dispatch) {
+        dispatch(startFetchingBreweries())
+        return fetch('https://api.brewerydb.com/v2/locations?region=utah&key=' + config.key + '&format=json')
+            .then(response => response.json())
+            .then(json => {
+                console.log(json)
+                dispatch(receiveBreweries(json.data))
+            })
+            .catch(err => dispatch(breweriesError(err)))
+    }
 }

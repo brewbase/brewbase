@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route, browserHistory} from 'react-router';
 import TwentyOneAndOverBox from './components/TwentyOneAndOverBox';
-import Breweries from './components/Breweries';
+import Breweries from './containers/Breweries';
 
 class App extends Component {
     render() {

@@ -1,11 +1,14 @@
 export default function fetchingBreweriesReducer(state = false, action) {
     switch(action.type){
         case "START_FETCHING_BREWERIES": {
-            return {
-                ...state,
-                fetchingBreweries: true
-            }
+            return true
         }
-        default: return state
+        case "BREWERIES_ERROR":
+        case "RECEIVE_BREWERIES": {
+            return false
+        }
+        default: {
+            return state
+        }
     }
 }

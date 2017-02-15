@@ -1,37 +1,23 @@
 const initialState = [
     {
-        name: 'taco',
-        id: 'woirw'
-    },
-    {
-        name: 'bell',
-        id: '34er'
+        brewery: {
+            name: 'wasatch',
+            id: '23kdjfk3'
+        }
     }
 ]
 
 export default function breweriesReducer(state = initialState, action) {
     switch(action.type){
-        case "START_FETCHING_BREWERIES": {
-            return {
-                ...state,
-                fetchingBreweries: true
-            }
-        }
         case "RECEIVE_BREWERIES": {
-            return {
-                ...state,
-                fetchingBreweries: false,
-                fetchedBreweries: true,
-                breweries: action.breweries
-            }
+            return action.breweries
         }
-        case "BREWERIES_ERROR": {
-            return {
-                ...state,
-                fetchingBreweries: false,
-                error: action.error
-            }
+        case "BREWERIES_ERROR":
+        case "START_FETCHING_BREWERIES": {
+            return []
         }
-        default: return state;
+        default: {
+            return state
+        }
     }
 }
