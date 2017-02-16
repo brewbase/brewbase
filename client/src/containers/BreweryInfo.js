@@ -1,7 +1,11 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import getSingleBrewery from '../actions/getSingleBrewery.js';
 
 class BreweryInfo extends React.Component {
+    componentDidMount() {
+        this.props.fetchSingleBrewery(this.props.id)
+}
     render() {
         return(
             <div>
@@ -17,6 +21,12 @@ const mapStateToProps = (state) => (
     }
 );
 
-BreweryInfo = connect(mapStateToProps)(BreweryInfo)
+const mapDispatchToProps = (dispatch) => ({
+    fetchSingleBrewery: (id) => {
+        dispatch(getSingleBrewery(id))
+    }
+})
+
+BreweryInfo = connect(mapStateToProps, mapDispatchToProps)(BreweryInfo)
 
 export default BreweryInfo
