@@ -3,7 +3,7 @@ import receiveBreweries from './receiveBreweries.js'
 import breweriesError from './breweriesError.js'
 import config from '../../config.js'
 
-const states = ['alabama','alaska','american aamoa','arizona','arkansas',
+const states = ['alabama','alaska','american samoa','arizona','arkansas',
 'california','colorado','connecticut','delaware','district of columbia',
 'micronesia','florida','georgia','guam','hawaii',
 'idaho','illinois','indiana','iowa','kansas','kentucky','louisiana','maine',
