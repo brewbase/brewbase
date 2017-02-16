@@ -3,12 +3,14 @@ import breweriesReducer from './breweriesReducer';
 import fetchingBreweriesReducer from './fetchingBreweriesReducer';
 import breweryErrorReducer from './breweryErrorReducer';
 import searchInputReducer from './searchInputReducer';
+import activeBreweryReducer from './activeBreweryReducer';
 
 const rootReducer = combineReducers({
     breweries: breweriesReducer,
     fetchingBreweries: fetchingBreweriesReducer,
     breweryError: breweryErrorReducer,
-    searchInput: searchInputReducer
+    searchInput: searchInputReducer,
+    activeBrewery: activeBreweryReducer
 });
 
 export default rootReducer;
