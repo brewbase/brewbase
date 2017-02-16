@@ -12,6 +12,7 @@ const SearchBar = (props) => {
          let lat = position.coords.latitude
          let lng = position.coords.longitude
          coords = {lat, lng}
+         console.log(coords)
     }
     let coords;
     let input;

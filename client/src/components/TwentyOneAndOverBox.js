@@ -4,7 +4,7 @@ import {browserHistory} from 'react-router';
 
 class TwentyOneAndOverBox extends React.Component{
     isOverTwentyOne(){
-        browserHistory.push('/home');
+        browserHistory.push('/search');
     }
 
     notOverTwentyOne(){
@@ -13,7 +13,6 @@ class TwentyOneAndOverBox extends React.Component{
     render(){
         return (
             <div>
-
                 <button className="underTwentyOne" onClick={() => this.isOverTwentyOne()}>Over</button>
                 <br/>
                 <button className="underTwentyOne" onClick={() => this.notOverTwentyOne()}>Under</button>

@@ -9,10 +9,15 @@ class App extends Component {
     render() {
         return (
             <Router history={browserHistory}>
-                <Route path='/' component={TwentyOneAndOverBox}/>
-                <Route path='/home' component={ConnectedSearchBar}/>
-                <Route path='/denied' component={Breweries}/>
-                <Route path='/searchResults' component={Breweries}/>
+                <Route path='/' component={TwentyOneAndOverBox} />
+                <Route path='/search' component={ConnectedSearchBar} />
+                <Route path='/denied' component={Breweries} />
+                <Route path='/searchResults' component={Breweries} />
+                {/* <Route path='/searchResults/moreinfo' component={BreweryInfo} />
+                <Route path='/favorites/brews' component={FavoritesView} />
+                <Route path='/favorites/breweries' component={FavoritesView} />
+                <Route path='/profile' component={ProfileView} />
+                <Route path='/login' component={LoginView} /> */}
             </Router>
         );
     }
