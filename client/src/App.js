@@ -9,7 +9,8 @@ class App extends Component {
     render() {
         return (
             <Router history={browserHistory}>
-                <Route path='/' component={ConnectedSearchBar}/>
+                <Route path='/' component={TwentyOneAndOverBox}/>
+                <Route path='/home' component={ConnectedSearchBar}/>
                 <Route path='/denied' component={Breweries}/>
                 <Route path='/searchResults' component={Breweries}/>
             </Router>
