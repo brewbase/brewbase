@@ -8,13 +8,14 @@ html, body {
     background-color: #F5F5F5;
 }
 
-h1, h2, h3, h4, h6, h6 {
+h1, h2, h3, h4, h5, h6 {
     font-family: 'Ubuntu', sans-serif;
     font-weight: lighter;
 }
 
 
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
+.material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
 .material-icons {
     font-size: 28px !important;
 }
@@ -31,9 +32,9 @@ h1, h2, h3, h4, h6, h6 {
 /* Age gate */
 .overTwentyOne,
 .underTwentyOne {
-    width: 75%;
+    width: 300px;
     height: 6.5vh;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 700;
     font-family: 'Roboto Condensed', sans-serif;
     background-color: #C4C4C4;
@@ -46,6 +47,183 @@ h1, h2, h3, h4, h6, h6 {
 .star {
     width: 24px;
 }
+
+/* Desktop version CSS */
+.desktopNav {
+    background-color: #2B2B28;
+    height: 7vh;
+    width: 100%;
+    color: white;
+    font-family: Futura;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 10px 0px black;
+}
+
+.rightSideItems {
+    width: 19%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.rightSideItems:hover {
+    cursor: pointer;
+}
+
+.actCircle {
+    font-size: 32px !important;
+}
+
+.companyName {
+    margin-left: 15px;
+    font-size: 30px !important;
+}
+
+.companyName:hover {
+    cursor: pointer;
+}
+
+.searchInputContainer {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.locationButton,
+.searchIcon:hover {
+    cursor: pointer;
+}
+
+.searchBar {
+    text-align: center;
+    margin: 0 0 0 -4px;
+    width: 400px;
+    border: 0;
+    outline: 0;
+    color: white;
+    background: transparent;
+    border-bottom: 2px solid white;
+    font-size: 20px;
+
+}
+
+.searchBar::-webkit-input-placeholder {
+   color: white;
+   font-weight: bold;
+}
+
+.searchButton,
+.locationButton {
+    line-height: normal !important;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid white;
+    height: 38px;
+}
+
+.searchResultsContainer {
+    width: 100%;
+    display flex;
+}
+
+.resultsSearchBarContainer {
+    width: 100%;
+    display: flex;
+}
+
+.resultsSearchBar {
+    text-align: center;
+    margin: 0 0 0 -4px;
+    width: 500px;
+    border: 0;
+    outline: 0;
+    color: white;
+    background: transparent;
+    border-bottom: 2px solid black;
+    font-size: 20px;
+
+}
+
+.resultsSearchBar::-webkit-input-placeholder {
+   color: black;
+}
+
+.resultsSearchButton,
+.resultsLocationButton {
+    line-height: normal !important;
+    text-align: center;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    border-bottom: 2px solid black;
+    height: 38px;
+}
+
+.breweryResultsContainer {
+    margin-left: 35px;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.cardHolderContainer {
+    width: 90%;
+    margin-right: 5%;
+    margin-left: 5%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.resultsBreweryCard {
+    width: 375px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 8px;
+    background-color: #FDFDFD;
+    box-shadow: 0px 2px 2px 0px grey;
+    border-color: #B4B4B4;
+    display: flex;
+    position: relative
+}
+
+.favStar {
+    font-size: 34px !important;
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+}
+
+.resultsTextContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.resultsSearchBarContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.findABrewery {
+    font-family: Futura;
+    font-size: 30px;
+}
+
+
+
 
 /* Going to mobile version */
 @media(max-width: 770px) {
@@ -107,13 +285,6 @@ h1, h2, h3, h4, h6, h6 {
         height: 21vh;
     }
 
-    .favStar {
-        font-size: 34px !important;
-        position: absolute;
-        bottom: 15px;
-        right: 15px;
-    }
-
     .expandedImgContainer {
         width: 30%;
         height: 50%;
@@ -124,7 +295,7 @@ h1, h2, h3, h4, h6, h6 {
     }
 
     .imgContainer {
-        width: 30%;
+        width: 40%;
         height: 100%;
         display: flex;
         justify-content: center;
