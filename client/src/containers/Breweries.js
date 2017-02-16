@@ -3,9 +3,9 @@ import {connect} from 'react-redux';
 import Brewery from '../components/Brewery';
 import getBreweries from '../actions/getBreweries.js';
 
+
 class Breweries extends React.Component {
     componentDidMount() {
-        console.log('logging', this.props.input)
         this.props.fetchBreweries(this.props.input)
     }
     render() {
