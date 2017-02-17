@@ -1,12 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
+import '../styles/main.css'
 
-const inputStyles = {
-    border: '0',
-    background: 'transparent',
-    outline: '0',
-    borderBottom: '1px solid black'
-}
 
 const SearchBar = (props) => {
 
@@ -22,26 +17,30 @@ const SearchBar = (props) => {
     }
     getLocation()
     return(
+        <div className="searchPage">
         <form>
             <Link to='searchresults'>
-                <button onClick={() => props.handleUserInput(coords)}>
-                    Locator
+                <button
+                    className="searchButton"
+                    onClick={() => props.handleUserInput(coords)}>
+                    <i className="material-icons md-light">location_on</i>
                 </button>
             </Link>
             <input
+                className="searchBar"
                 ref={node => input = node}
                 type='text'
-                style={inputStyles}
             >
             </input>
             <Link to='searchresults'>
-                <input
-                    onClick={() => props.handleUserInput(input.value)}
-                    type='submit'
-                >
-                </input>
+                <button
+                    className="searchButton"
+                    onClick={() => props.handleUserInput(input.value)}>
+                    <i className="material-icons md-light">search</i>
+                </button>
             </Link>
         </form>
+        </div>
     )
 }
 
