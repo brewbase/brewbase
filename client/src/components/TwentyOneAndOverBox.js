@@ -1,5 +1,4 @@
 import React from 'react';
-import NotOverTwentyOne from './NotOverTwentyOne';
 import {browserHistory} from 'react-router';
 
 class TwentyOneAndOverBox extends React.Component{

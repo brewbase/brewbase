@@ -1,10 +1,16 @@
 import React from 'react';
 import {Link} from 'react-router';
-import TwentyOneAndOverBox from './TwentyOneAndOverBox';
-import getLocation from './TwentyOneAndOverBox';
-import showPosition from './TwentyOneAndOverBox';
+
+const inputStyles = {
+    border: '0',
+    background: 'transparent',
+    outline: '0',
+    borderBottom: '1px solid black'
+}
 
 const SearchBar = (props) => {
+    let coords;
+    let input;
     function getLocation() {
         navigator.geolocation.getCurrentPosition(showPosition);
     }
@@ -13,14 +19,27 @@ const SearchBar = (props) => {
          let lng = position.coords.longitude
          coords = {lat, lng}
     }
-    let coords;
-    let input;
     getLocation();
     return(
         <form>
-            <Link to='searchResults'><button onClick={() => props.handleUserInput(coords)}>Locator</button></Link>
-            <input ref={node => input = node} type='text' style={{border: '0', background: 'transparent', outline: '0', borderBottom: '1px solid black'}}></input>
-            <Link to='searchResults'><input onClick={() => props.handleUserInput(input.value)} type='submit'></input></Link>
+            <Link to='searchResults'>
+                <button onClick={() => props.handleUserInput(coords)}>
+                    Locator
+                </button>
+            </Link>
+            <input
+                ref={node => input = node}
+                type='text'
+                style={inputStyles}
+            >
+            </input>
+            <Link to='searchResults'>
+                <input
+                    onClick={() => props.handleUserInput(input.value)}
+                    type='submit'
+                >
+                </input>
+            </Link>
         </form>
     )
 

@@ -3,7 +3,7 @@ import {Router, Route, browserHistory} from 'react-router';
 import TwentyOneAndOverBox from './components/TwentyOneAndOverBox';
 import Breweries from './containers/Breweries';
 import ConnectedSearchBar from './containers/ConnectedSearchBar.js'
-//import SearchResults from './components/SearchResults'
+import BreweryMoreInfo from './containers/BreweryMoreInfo.js';
 
 class App extends Component {
     render() {
@@ -13,6 +13,7 @@ class App extends Component {
                 <Route path='/home' component={ConnectedSearchBar}/>
                 <Route path='/denied' component={Breweries}/>
                 <Route path='/searchResults' component={Breweries}/>
+                <Route path='/searchResults/moreinfo' component={BreweryMoreInfo} />
             </Router>
         );
     }
