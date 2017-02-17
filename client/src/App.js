@@ -10,10 +10,10 @@ class App extends Component {
         return (
             <Router history={browserHistory}>
                 <Route path='/' component={TwentyOneAndOverBox}/>
-                <Route path='/home' component={ConnectedSearchBar}/>
+                <Route path='/search' component={ConnectedSearchBar}/>
                 <Route path='/denied' component={Breweries}/>
-                <Route path='/searchResults' component={Breweries}/>
-                <Route path='/searchResults/moreinfo' component={BreweryMoreInfo} />
+                <Route path='/searchresults' component={Breweries}/>
+                <Route path='/searchresults/moreinfo' component={BreweryMoreInfo} />
             </Router>
         );
     }
