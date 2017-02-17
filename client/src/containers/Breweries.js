@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Brewery from '../components/Brewery.js';
 import getBreweries from '../actions/getBreweries.js';
-import updateActiveBrewery from '../actions/updateActiveBrewery.js';
+import updateActiveBreweryId from '../actions/updateActiveBreweryId.js'
+
 
 class Breweries extends React.Component {
     componentDidMount() {
@@ -19,7 +20,7 @@ class Breweries extends React.Component {
                     ? <div>Fetching</div>
                     : null
                 }
-                {this.props.breweries.map(b => (<Brewery onBreweryClick={this.props.onBreweryClick} name={b.brewery.name} id={b.brewery.id} key={b.brewery.id}/>))}
+                {this.props.breweries.map(b => (<Brewery id={b.brewery.id} onBreweryClick={this.props.onBreweryClick} name={b.brewery.name} key={b.brewery.id}/>))}
             </div>
         )
     }
@@ -39,7 +40,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(getBreweries(input))
     },
     onBreweryClick: (id) => {
-        dispatch(updateActiveBrewery(id))
+        dispatch(updateActiveBreweryId(id))
     }
 })
 
