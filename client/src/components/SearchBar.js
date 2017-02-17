@@ -1,8 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router'
-import { geolocated } from 'react-geolocated'
+import React from 'react';
+import {Link} from 'react-router';
 
-const SearchBarStyles = {
+const inputStyles = {
     border: '0',
     background: 'transparent',
     outline: '0',
@@ -10,31 +9,35 @@ const SearchBarStyles = {
 }
 
 const SearchBar = (props) => {
-    let input
-    return (
+
+    let coords;
+    let input;
+    function getLocation() {
+        navigator.geolocation.getCurrentPosition(showPosition);
+    }
+    function showPosition(position) {
+         let lat = position.coords.latitude
+         let lng = position.coords.longitude
+         coords = {lat, lng}
+    }
+    getLocation();
+    return(
         <form>
             <Link to='searchResults'>
-                <button
-                    onClick={() => props.handleUserInput(
-                        {
-                            lat: props.coords.latitude,
-                            lng: props.coords.longitude
-                        }
-                    )}
-                >
+                <button onClick={() => props.handleUserInput(coords)}>
                     Locator
                 </button>
             </Link>
             <input
                 ref={node => input = node}
                 type='text'
-                style={SearchBarStyles}
+                style={inputStyles}
             >
             </input>
             <Link to='searchResults'>
                 <input
-                    type='submit'
                     onClick={() => props.handleUserInput(input.value)}
+                    type='submit'
                 >
                 </input>
             </Link>

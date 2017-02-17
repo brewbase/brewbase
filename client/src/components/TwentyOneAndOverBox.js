@@ -1,8 +1,9 @@
 import React from 'react';
-import { browserHistory } from 'react-router';
 import '../../../styles/main.css'
 import './backgrounds.css'
 import logo from '../media/logo.png'
+import {browserHistory} from 'react-router';
+
 
 class TwentyOneAndOverBox extends React.Component{
     isOverTwentyOne() {
