@@ -14,7 +14,7 @@ class TwentyOneAndOverBox extends React.Component{
     render() {
         return (
                 <div className="splashPage">
-                    <img src={logo} alt="logo" className="logo"></img>
+                    <img src={logo} alt="logo" className="logo-image"></img>
                     <div className="splashButtons">
                         <button
                             className="overTwentyOne"
