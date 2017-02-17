@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import Brewery from '../components/Brewery';
+import Brewery from '../components/Brewery.js';
 import getBreweries from '../actions/getBreweries.js';
 import updateActiveBreweryId from '../actions/updateActiveBreweryId.js'
 

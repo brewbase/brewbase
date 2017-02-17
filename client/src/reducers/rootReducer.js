@@ -8,6 +8,7 @@ import brewsErrorReducer from './brewsErrorReducer.js';
 import activeBreweryIdReducer from './activeBreweryIdReducer.js';
 import searchInputReducer from './searchInputReducer.js';
 
+
 const rootReducer = combineReducers({
     breweries: breweriesReducer,
     fetchingBreweries: fetchingBreweriesReducer,

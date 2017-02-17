@@ -9,6 +9,7 @@ const inputStyles = {
 }
 
 const SearchBar = (props) => {
+
     let coords;
     let input;
     function getLocation() {
@@ -42,8 +43,11 @@ const SearchBar = (props) => {
             </Link>
         </form>
     )
+}
 
-};
-
-
-export default SearchBar;
+export default geolocated({
+    positionOptions: {
+        enableHighAccuracy: false,
+    },
+    userDecisionTimeout: 5000
+})(SearchBar)
