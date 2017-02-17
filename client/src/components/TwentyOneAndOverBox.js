@@ -1,5 +1,8 @@
 import React from 'react';
 import { browserHistory } from 'react-router';
+import '../../../styles/main.css'
+import './backgrounds.css'
+import logo from '../media/logo.png'
 
 class TwentyOneAndOverBox extends React.Component{
     isOverTwentyOne() {
@@ -10,21 +13,24 @@ class TwentyOneAndOverBox extends React.Component{
     }
     render() {
         return (
-            <div>
-                <button
-                    className="underTwentyOne"
-                    onClick={() => this.isOverTwentyOne()}
-                >
-                    Over
-                </button>
-                <br/>
-                <button
-                    className="underTwentyOne"
-                    onClick={() => this.notOverTwentyOne()}
-                >
-                    Under
-                </button>
-            </div>
+                <div className="splashPage">
+                    <img src={logo} alt="logo" className="logo"></img>
+                    <div className="splashButtons">
+                        <button
+                            className="overTwentyOne"
+                            onClick={() => this.isOverTwentyOne()}
+                        >
+                            I AM 21
+                        </button>
+                        <br/>
+                        <button
+                            className="underTwentyOne"
+                            onClick={() => this.notOverTwentyOne()}
+                        >
+                            I AM NOT 21
+                        </button>
+                    </div>
+                </div>
         )
     }
 }
