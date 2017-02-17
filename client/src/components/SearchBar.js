@@ -1,31 +1,50 @@
-import React from 'react';
-import {Link} from 'react-router';
-import TwentyOneAndOverBox from './TwentyOneAndOverBox';
-import getLocation from './TwentyOneAndOverBox';
-import showPosition from './TwentyOneAndOverBox';
+import React from 'react'
+import { Link } from 'react-router'
+import { geolocated } from 'react-geolocated'
+
+const SearchBarStyles = {
+    border: '0',
+    background: 'transparent',
+    outline: '0',
+    borderBottom: '1px solid black'
+}
 
 const SearchBar = (props) => {
-    function getLocation() {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    }
-    function showPosition(position) {
-         let lat = position.coords.latitude
-         let lng = position.coords.longitude
-         coords = {lat, lng}
-         console.log(coords)
-    }
-    let coords;
-    let input;
-    getLocation();
-    return(
+    let input
+    return (
         <form>
-            <Link to='searchResults'><button onClick={() => props.handleUserInput(coords)}>Locator</button></Link>
-            <input ref={node => input = node} type='text' style={{border: '0', background: 'transparent', outline: '0', borderBottom: '1px solid black'}}></input>
-            <Link to='searchResults'><input onClick={() => props.handleUserInput(input.value)} type='submit'></input></Link>
+            <Link to='searchResults'>
+                <button
+                    onClick={() => props.handleUserInput(
+                        {
+                            lat: props.coords.latitude,
+                            lng: props.coords.longitude
+                        }
+                    )}
+                >
+                    Locator
+                </button>
+            </Link>
+            <input
+                ref={node => input = node}
+                type='text'
+                style={SearchBarStyles}
+            >
+            </input>
+            <Link to='searchResults'>
+                <input
+                    type='submit'
+                    onClick={() => props.handleUserInput(input.value)}
+                >
+                </input>
+            </Link>
         </form>
     )
+}
 
-};
-
-
-export default SearchBar;
+export default geolocated({
+    positionOptions: {
+        enableHighAccuracy: false,
+    },
+    userDecisionTimeout: 5000
+})(SearchBar)

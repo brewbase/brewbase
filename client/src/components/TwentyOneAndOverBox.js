@@ -1,25 +1,32 @@
 import React from 'react';
-import NotOverTwentyOne from './NotOverTwentyOne';
-import {browserHistory} from 'react-router';
+import { browserHistory } from 'react-router';
 
 class TwentyOneAndOverBox extends React.Component{
-    isOverTwentyOne(){
+    isOverTwentyOne() {
         browserHistory.push('/search');
     }
-
-    notOverTwentyOne(){
+    notOverTwentyOne() {
         browserHistory.push('/denied')
     }
-    render(){
+    render() {
         return (
             <div>
-                <button className="underTwentyOne" onClick={() => this.isOverTwentyOne()}>Over</button>
+                <button
+                    className="underTwentyOne"
+                    onClick={() => this.isOverTwentyOne()}
+                >
+                    Over
+                </button>
                 <br/>
-                <button className="underTwentyOne" onClick={() => this.notOverTwentyOne()}>Under</button>
+                <button
+                    className="underTwentyOne"
+                    onClick={() => this.notOverTwentyOne()}
+                >
+                    Under
+                </button>
             </div>
         )
     }
-
 }
 
-export default TwentyOneAndOverBox;
+export default TwentyOneAndOverBox
