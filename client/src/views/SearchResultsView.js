@@ -6,12 +6,9 @@ import '../styles/main.css';
 
 const SearchResultsView = (props) => (
 <div className="content">
-    <div>
         <DesktopNavBar />
         <MobileNavBar />
         <Breweries />
-
-    </div>
 </div>
 )
 
