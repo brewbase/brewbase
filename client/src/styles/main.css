@@ -310,7 +310,7 @@ h1, h2, h3, h4, h5, h6 {
     /* Wrap card container component in this for scrolling */
     .content {
         position: fixed;
-        top: 8vh;
+        top: 0;
         bottom: 8.2vh;
         left: 0;
         right: 0;
