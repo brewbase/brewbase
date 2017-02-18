@@ -2,13 +2,14 @@ import React from 'react';
 import Breweries from '../containers/Breweries.js';
 import DesktopNavBar from '../components/DesktopNavBar.js'
 import MobileNavBar from '../components/MobileNavBar.js'
+import '../styles/main.css';
 
 const SearchResultsView = (props) => (
-    <div>
+<div className="content">
         <DesktopNavBar />
-        <Breweries />
         <MobileNavBar />
-    </div>
+        <Breweries />
+</div>
 )
 
 export default SearchResultsView;
