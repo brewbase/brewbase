@@ -2,6 +2,12 @@ import React from 'react'
 import {Link} from 'react-router'
 import '../styles/main.css'
 
+const inputStyles = {
+    border: '0',
+    background: 'transparent',
+    outline: '0',
+    borderBottom: '1px solid black'
+}
 
 const SearchBar = (props) => {
     let coords
