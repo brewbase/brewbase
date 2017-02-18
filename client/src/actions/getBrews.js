@@ -5,7 +5,7 @@ import config from '../../config.js'
 
 export default function getBrews(id) {
     return function(dispatch) {
-        dispatch(startFetchingBrews)
+        dispatch(startFetchingBrews())
         return fetch(`https://api.brewerydb.com/v2/brewery/${id}/beers?key=${config.key}&format=json`)
         .then(response => response.json())
         .then(json => {

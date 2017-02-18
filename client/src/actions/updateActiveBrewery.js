@@ -1,6 +1,6 @@
-export default function updateActiveBrewery(id) {
+export default function updateActiveBrewery(brewery) {
     return {
         type: 'UPDATE_ACTIVE_BREWERY',
-        id
+        brewery
     }
 }

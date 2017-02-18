@@ -1,11 +1,10 @@
 import React from 'react';
 import '../styles/main.css'
-import './backgrounds.css'
+import '../styles/main.css'
 import logo from '../media/logo.png'
 import {browserHistory} from 'react-router';
 
-
-class TwentyOneAndOverBox extends React.Component{
+class TwentyOneBox extends React.Component{
     isOverTwentyOne() {
         browserHistory.push('/search');
     }
@@ -36,4 +35,4 @@ class TwentyOneAndOverBox extends React.Component{
     }
 }
 
-export default TwentyOneAndOverBox
+export default TwentyOneBox

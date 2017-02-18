@@ -1,22 +1,25 @@
-import React, {Component} from 'react';
-import {Router, Route, browserHistory} from 'react-router';
-import TwentyOneAndOverBox from './components/TwentyOneAndOverBox';
-import Breweries from './containers/Breweries';
-import ConnectedSearchBar from './containers/ConnectedSearchBar.js'
-import BreweryMoreInfo from './containers/BreweryMoreInfo.js';
+import React from 'react'
+import {Router, Route, browserHistory} from 'react-router'
+import TwentyOneBox from './components/TwentyOneBox'
+import Sorry from './components/Sorry.js'
+import SearchView from './views/SearchView.js'
+import SearchResultsView from './views/SearchResultsView.js'
+import SearchResultsMoreInfoView from './views/SearchResultsMoreInfoView.js'
+import ProfileView from './views/ProfileView.js'
+import FavoriteBrewsView from './views/FavoriteBrewsView.js'
+import FavoriteBreweriesView from './views/FavoriteBreweriesView.js'
 
-class App extends Component {
-    render() {
-        return (
-            <Router history={browserHistory}>
-                <Route path='/' component={TwentyOneAndOverBox}/>
-                <Route path='/search' component={ConnectedSearchBar}/>
-                <Route path='/denied' component={Breweries}/>
-                <Route path='/searchresults' component={Breweries}/>
-                <Route path='/searchresults/moreinfo' component={BreweryMoreInfo} />
-            </Router>
-        );
-    }
-}
+const App = (props) => (
+    <Router history={browserHistory}>
+        <Route path='/' component={TwentyOneBox} />
+        <Route path='/search' component={SearchView} />
+        <Route path='/denied' component={Sorry} />
+        <Route path='/searchresults' component={SearchResultsView} />
+        <Route path='/searchresults/moreinfo' component={SearchResultsMoreInfoView} />
+        <Route path='/favorites/brews' component={FavoriteBrewsView} />
+        <Route path='/favorites/breweries' component={FavoriteBreweriesView} />
+        <Route path='/profile' component={ProfileView} />
+    </Router>
+)
 
 export default App;

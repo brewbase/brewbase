@@ -28,6 +28,27 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
 }
 
+.splashPage {
+    background: linear-gradient(
+            rgba(0,0,0,0.7),
+            rgba(0,0,0,0.7)),
+            url('../media/brewery.jpg') center no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*justify-content: center;*/
+    height: 100vh;
+
+}
+
+.logo {
+    height: auto;
+    width: 175px;
+    padding-top: 75px;
+    padding-bottom: 125px;
+}
+
 /* Age gate */
 .overTwentyOne,
 .underTwentyOne {
@@ -60,6 +81,10 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 10px 0 black;
+}
+
+.headerMobile, .navMobile {
+    display: none;
 }
 
 .rightSideItems {
@@ -251,6 +276,10 @@ h1, h2, h3, h4, h5, h6 {
         flex-direction: row;
         justify-content: center;
         align-items: center;
+    }
+
+    .desktopNav {
+        display: none;
     }
 
     .navMobile {

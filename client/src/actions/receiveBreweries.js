@@ -1,6 +1,6 @@
-export default function receiveBreweries(data) {
+export default function receiveBreweries(breweries) {
     return {
         type: "RECEIVE_BREWERIES",
-        breweries: data
+        breweries
     }
 }

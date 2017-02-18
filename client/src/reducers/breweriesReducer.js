@@ -1,13 +1,4 @@
-const initialState = [
-    {
-        brewery: {
-            name: 'wasatch',
-            id: '23kdjfk3'
-        }
-    }
-]
-
-export default function breweriesReducer(state = initialState, action) {
+export default function breweriesReducer(state = [], action) {
     switch(action.type){
         case "RECEIVE_BREWERIES": {
             return action.breweries
