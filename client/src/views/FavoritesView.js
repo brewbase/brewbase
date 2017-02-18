@@ -1,13 +1,14 @@
 import React from 'react'
 import DesktopNavBar from '../components/DesktopNavBar.js'
 import MobileNavBar from '../components/MobileNavBar.js'
+import ConnectedFavToggle from '../containers/ConnectedFavToggle.js'
 
-const FavoriteBreweriesView = (props) => (
+const FavoritesView = (props) => (
     <div>
         <DesktopNavBar />
-        <p>Favorite breweries view not finished</p>
         <MobileNavBar />
+        <ConnectedFavToggle />
     </div>
 )
 
-export default FavoriteBreweriesView
+export default FavoritesView

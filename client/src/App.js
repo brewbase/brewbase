@@ -6,8 +6,7 @@ import SearchView from './views/SearchView.js'
 import SearchResultsView from './views/SearchResultsView.js'
 import SearchResultsMoreInfoView from './views/SearchResultsMoreInfoView.js'
 import ProfileView from './views/ProfileView.js'
-import FavoriteBrewsView from './views/FavoriteBrewsView.js'
-import FavoriteBreweriesView from './views/FavoriteBreweriesView.js'
+import FavoritesView from './views/FavoritesView.js'
 
 const App = (props) => (
     <Router history={browserHistory}>
@@ -16,8 +15,7 @@ const App = (props) => (
         <Route path='/denied' component={Sorry} />
         <Route path='/searchresults' component={SearchResultsView} />
         <Route path='/searchresults/moreinfo' component={SearchResultsMoreInfoView} />
-        <Route path='/favorites/brews' component={FavoriteBrewsView} />
-        <Route path='/favorites/breweries' component={FavoriteBreweriesView} />
+        <Route path='/favorites' component={FavoritesView} />
         <Route path='/profile' component={ProfileView} />
     </Router>
 )
