@@ -6,8 +6,9 @@ import MobileNavBar from '../components/MobileNavBar.js'
 const SearchView = (props) => (
     <div>
         <DesktopNavBar />
-        <ConnectedSearchBar />
         <MobileNavBar />
+        <ConnectedSearchBar />
+
     </div>
 )
 

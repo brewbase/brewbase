@@ -3,11 +3,10 @@ import {Link} from 'react-router'
 
 const DesktopNavBar = (props) => (
     <div className='desktopNav'>
-        <span className='companyName'></span>
+        <Link to='/search'>
+            <span className='companyName'>BREWBASE</span>
+        </Link>
         <div className='rightSideItems'>
-            <Link to='/searchresults'>
-                <span className='companyName'>BREWBASE</span>
-            </Link>
             <Link to='/search'>
                 <span className='searchText'>Search</span>
             </Link>
