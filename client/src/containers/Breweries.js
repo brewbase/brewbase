@@ -2,7 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import Brewery from '../components/Brewery.js';
 import getBreweries from '../actions/getBreweries.js';
-import updateActiveBrewery from '../actions/updateActiveBrewery.js'
+import updateActiveBrewery from '../actions/updateActiveBrewery.js';
+import addBreweryToFavorites from '../actions/addBreweryToFavorites.js';
 import '../styles/main.css';
 
 class Breweries extends React.Component {
@@ -14,6 +15,7 @@ class Breweries extends React.Component {
             <Brewery
                 key={i}
                 onBreweryClick={this.props.onBreweryClick}
+                onStarClick={this.props.onStarClick}
                 brewery={b}
             />
         ))
@@ -50,6 +52,9 @@ const mapDispatchToProps = (dispatch) => ({
     },
     onBreweryClick: (brewery) => {
         dispatch(updateActiveBrewery(brewery))
+    },
+    onStarClick: (brewery) => {
+        dispatch(addBreweryToFavorites(brewery))
     }
 })
 

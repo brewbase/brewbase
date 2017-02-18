@@ -32,7 +32,7 @@ const Brewery = (props) => (
                     {props.brewery.distance}
                 </h3>
             </div>
-            <i className='material-icons favStar'>star_border</i>
+            <i className='material-icons favStar' onClick={() => props.onStarClick(props.brewery)}>star_border</i>
         </div>
     </Link>
 )

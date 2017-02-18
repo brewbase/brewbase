@@ -8,6 +8,7 @@ import brewsErrorReducer from './brewsErrorReducer.js';
 import activeBreweryReducer from './activeBreweryReducer.js';
 import searchInputReducer from './searchInputReducer.js';
 import favoritesReducer from './favoritesReducer.js';
+import favoriteBreweriesReducer from './favoriteBreweriesReducer.js';
 
 const rootReducer = combineReducers({
     breweries: breweriesReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     brewsError: brewsErrorReducer,
     activeBrewery: activeBreweryReducer,
     searchInput: searchInputReducer,
-    favorites: favoritesReducer
+    favorites: favoritesReducer,
+    favoriteBreweries: favoriteBreweriesReducer
 });
 
 export default rootReducer;
