@@ -5,11 +5,11 @@ import MobileNavBar from '../components/MobileNavBar.js'
 import '../styles/main.css';
 
 const SearchResultsView = (props) => (
-<div className="content">
+    <div className="content">
         <DesktopNavBar />
         <MobileNavBar />
         <Breweries />
-</div>
+    </div>
 )
 
 export default SearchResultsView;
