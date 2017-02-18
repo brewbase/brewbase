@@ -1,12 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router'
+import '../styles/main.css'
 
-const inputStyles = {
-    border: '0',
-    background: 'transparent',
-    outline: '0',
-    borderBottom: '1px solid black'
-}
 
 const SearchBar = (props) => {
     let coords
@@ -23,11 +18,14 @@ const SearchBar = (props) => {
     return (
         <form>
             <Link to='searchresults'>
-                <button onClick={() => props.handleUserInput(coords)}>
-                    Locator
+                <button
+                    className="searchButton"
+                    onClick={() => props.handleUserInput(coords)}>
+                    <i className="material-icons md-light">location_on</i>
                 </button>
             </Link>
             <input
+                className="searchBar"
                 ref={node => input = node}
                 type='text'
                 style={inputStyles}
