@@ -5,9 +5,8 @@ import breweryErrorReducer from './breweryErrorReducer.js';
 import brewsReducer from './brewsReducer.js';
 import fetchingBrewsReducer from './fetchingBrewsReducer.js';
 import brewsErrorReducer from './brewsErrorReducer.js';
-import activeBreweryIdReducer from './activeBreweryIdReducer.js';
+import activeBreweryReducer from './activeBreweryReducer.js';
 import searchInputReducer from './searchInputReducer.js';
-
 
 const rootReducer = combineReducers({
     breweries: breweriesReducer,
@@ -16,7 +15,7 @@ const rootReducer = combineReducers({
     brews: brewsReducer,
     fetchingBrews: fetchingBrewsReducer,
     brewsError: brewsErrorReducer,
-    activeBreweryId: activeBreweryIdReducer,
+    activeBrewery: activeBreweryReducer,
     searchInput: searchInputReducer
 });
 
