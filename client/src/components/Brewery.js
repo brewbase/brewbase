@@ -3,10 +3,6 @@ import {Link} from 'react-router'
 import '../styles/main.css'
 
 const Brewery = (props) => (
-    <Link
-        to='/searchresults/moreinfo'
-        onClick={() => props.onBreweryClick(props.brewery)}
-    >
         <div className='cardContainer'>
             <div className='imgContainer'>
                 <img
@@ -16,11 +12,16 @@ const Brewery = (props) => (
                 />
             </div>
             <div className='textContainer'>
-                <h1
-                    className='breweryName'
+                <Link
+                    to='/searchresults/moreinfo'
+                    onClick={() => props.onBreweryClick(props.brewery)}
                 >
-                    {props.brewery.brewery.name}
-                </h1>
+                    <h1
+                        className='breweryName'
+                    >
+                        {props.brewery.brewery.name}
+                    </h1>
+                </Link>
                 <h2
                     className='breweryAddress'
                 >
@@ -34,7 +35,6 @@ const Brewery = (props) => (
             </div>
             <i className='material-icons favStar' onClick={() => props.onStarClick(props.brewery)}>star_border</i>
         </div>
-    </Link>
 )
 
 export default Brewery;
