@@ -54,6 +54,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(updateActiveBrewery(brewery))
     },
     onStarClick: (brewery) => {
+        console.log(brewery)
         dispatch(addBreweryToFavorites(brewery))
     }
 })
