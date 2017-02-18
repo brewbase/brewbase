@@ -1,8 +1,7 @@
 export default function favoriteBreweriesReducer(state = [], action) {
-    switch(action.type){
+    switch(action.type) {
         case 'ADD_BREWERY_TO_FAVORITES': {
-            const newArray = state.slice(0);
-            return newArray.push(action.brewery);
+            return [...state, action.brewery]
         }
         default: {
             return state
