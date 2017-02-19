@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import Brewery from '../components/Brewery.js';
 import getBreweries from '../actions/getBreweries.js';
 import updateActiveBrewery from '../actions/updateActiveBrewery.js';
-import addBreweryToFavorites from '../actions/addBreweryToFavorites.js';
+import updateFavoriteBreweries from '../actions/updateFavoriteBreweries.js';
 import { getFavoriteBreweryIds } from '../reducers/selectors.js';
 import '../styles/main.css';
 
@@ -57,7 +57,7 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(updateActiveBrewery(brewery))
     },
     onStarClick: (brewery) => {
-        dispatch(addBreweryToFavorites(brewery))
+        dispatch(updateFavoriteBreweries(brewery))
     }
 })
 
