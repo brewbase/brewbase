@@ -37,7 +37,7 @@ const Brewery = (props) => (
                 className='material-icons favStar'
                 onClick={() => props.onStarClick(props.brewery)}
             >
-                star_border
+                {props.isFavorited ? 'star' : 'star_border'}
             </i>
         </div>
 )
