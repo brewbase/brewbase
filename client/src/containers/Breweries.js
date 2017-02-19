@@ -4,6 +4,7 @@ import Brewery from '../components/Brewery.js';
 import getBreweries from '../actions/getBreweries.js';
 import updateActiveBrewery from '../actions/updateActiveBrewery.js';
 import addBreweryToFavorites from '../actions/addBreweryToFavorites.js';
+import { getFavoriteBreweryIds } from '../reducers/selectors.js';
 import '../styles/main.css';
 
 class Breweries extends React.Component {
@@ -17,6 +18,7 @@ class Breweries extends React.Component {
                 onBreweryClick={this.props.onBreweryClick}
                 onStarClick={this.props.onStarClick}
                 brewery={b}
+                isFavorited={this.props.favoriteBreweryIds.includes(b.brewery.id)}
             />
         ))
     )
@@ -42,7 +44,8 @@ const mapStateToProps = (state) => (
         breweries: state.breweries,
         error: state.breweriesError,
         fetching: state.fetchingBreweries,
-        input: state.searchInput
+        input: state.searchInput,
+        favoriteBreweryIds: getFavoriteBreweryIds(state)
     }
 )
 
@@ -54,7 +57,6 @@ const mapDispatchToProps = (dispatch) => ({
         dispatch(updateActiveBrewery(brewery))
     },
     onStarClick: (brewery) => {
-        console.log(brewery)
         dispatch(addBreweryToFavorites(brewery))
     }
 })
