@@ -1,4 +1,9 @@
 export function getFavoriteBreweryIds(state) {
-    const favoriteBreweryIds = state.favoriteBreweries.map(b => b.brewery.id)
+    let favoriteBreweryIds
+    if (state.favoriteBreweries) {
+        favoriteBreweryIds = state.favoriteBreweries.map(b => b.brewery.id)
+    } else {
+        favoriteBreweryIds = state.map(b => b.brewery.id)
+    }
     return favoriteBreweryIds
 }
