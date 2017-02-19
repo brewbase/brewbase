@@ -22,7 +22,7 @@ class Breweries extends React.Component {
     )
     render() {
         return (
-            <div>
+            <div style={{display: 'flex', flexWrap: 'wrap'}}>
                 {this.props.error
                     ? <div>{this.props.error.toString()}</div>
                     : null

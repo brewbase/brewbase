@@ -3,6 +3,7 @@ import {Link} from 'react-router'
 import '../styles/main.css'
 
 const Brewery = (props) => (
+
         <div className='cardContainer'>
             <div className='imgContainer'>
                 <img
@@ -40,6 +41,8 @@ const Brewery = (props) => (
                 star_border
             </i>
         </div>
+
+
 )
 
 export default Brewery
