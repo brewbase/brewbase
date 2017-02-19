@@ -24,13 +24,13 @@ class Breweries extends React.Component {
     )
     render() {
         return (
-            <div style={{display: 'flex', flexWrap: 'wrap'}}>
+            <div className='breweryResultsContainer'>
                 {this.props.error
                     ? <div>{this.props.error.toString()}</div>
                     : null
                 }
                 {this.props.fetching
-                    ? <div>Fetching</div>
+                    ? <div>Finding breweries...</div>
                     : null
                 }
                 {this.renderBreweries()}
