@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import Brewery from '../components/Brewery.js';
 import getBreweries from '../actions/getBreweries.js';
 import updateActiveBrewery from '../actions/updateActiveBrewery.js';
@@ -49,17 +49,19 @@ const mapStateToProps = (state) => (
     }
 )
 
-const mapDispatchToProps = (dispatch) => ({
-    fetchBreweries: (input) => {
-        dispatch(getBreweries(input))
-    },
-    onBreweryClick: (brewery) => {
-        dispatch(updateActiveBrewery(brewery))
-    },
-    onStarClick: (brewery) => {
-        dispatch(updateFavoriteBreweries(brewery))
+const mapDispatchToProps = (dispatch) => (
+    {
+        fetchBreweries: (input) => {
+            dispatch(getBreweries(input))
+        },
+        onBreweryClick: (brewery) => {
+            dispatch(updateActiveBrewery(brewery))
+        },
+        onStarClick: (brewery) => {
+            dispatch(updateFavoriteBreweries(brewery))
+        }
     }
-})
+)
 
 Breweries = connect(mapStateToProps, mapDispatchToProps)(Breweries)
 
