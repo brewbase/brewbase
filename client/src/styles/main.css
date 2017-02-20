@@ -13,6 +13,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: lighter;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 
 .material-icons.md-light { color: rgba(255, 255, 255, 1); }
 .material-icons.md-dark { color: rgba(0, 0, 0, 0.54); }
@@ -251,6 +256,18 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     flex-direction: column;
     justify-content: center;
+}
+
+.breweryName {
+    font-size: 21px;
+    text-align: center;
+    width: 85%;
+}
+
+.breweryAddress {
+    font-size: 18px;
+    text-align: center;
+    width: 85%;
 }
 
 .resultsSearchBarContainer {
