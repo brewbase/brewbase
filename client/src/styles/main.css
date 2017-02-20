@@ -281,6 +281,19 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Going to mobile version */
 @media(max-width: 800px) {
+    h1 {
+        font-size: 21px;
+    }
+
+    h2 {
+        font-size: 16px;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
     .headerMobile {
         background-color: #2B2B28;
         height: 8vh;
@@ -386,7 +399,7 @@ h1, h2, h3, h4, h5, h6 {
     }
 
     .textContainer {
-        width: 40%;
+        width: 50%;
         display: flex;
         flex-direction: column;
         justify-content: center;
