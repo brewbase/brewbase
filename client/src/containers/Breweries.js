@@ -24,6 +24,19 @@ class Breweries extends React.Component {
     )
     render() {
         return (
+            <div>
+            <div className="searchResultsContainer">
+                  <div className="resultsSearchBarContainer">
+                    <h3 className="findABrewery">Find a Brewery</h3>
+                    <form className="resultsSearchInput">
+                        <button className="resultsLocationButton">
+                            <i className="material-icons md-dark">location_on</i>
+                        </button>
+                        <input className="resultsSearchBar" placeholder="Enter a state or city"></input>
+                        <button className="resultsSearchButton"><i className="material-icons md-dark searchIcon">search</i></button>
+                    </form>
+                  </div>
+              </div>
             <div className='breweryResultsContainer'>
                 {this.props.error
                     ? <div>{this.props.error.toString()}</div>
@@ -35,6 +48,7 @@ class Breweries extends React.Component {
                 }
                 {this.renderBreweries()}
             </div>
+        </div>
         )
     }
 }
