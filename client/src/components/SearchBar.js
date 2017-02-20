@@ -2,7 +2,8 @@ import React from 'react'
 import {Link} from 'react-router'
 import '../styles/main.css'
 
-const SearchBar = (props) => {
+const SearchBar = (props, context) => {
+    let path = context.router.location.pathname
     let coords
     let input
     function getLocation() {
@@ -14,32 +15,80 @@ const SearchBar = (props) => {
         coords = {lat, lng}
     }
     getLocation()
+    const changeClass = {
+        colorChange: function () {
+            path
+            switch (path) {
+                case '/search':
+                    return 'material-icons md-light';
+                case '/searchresults':
+                    return 'material-icons md-dark';
+                default:
+                    return 'material-icons md-dark';
+            }
+        },
+        getClassBar: function (){
+            path
+            switch (path) {
+                case '/search':
+                    return 'searchBar';
+                case '/searchresults':
+                    return 'resultsSearchBar';
+                default:
+                    return 'resultsSearchBar';
+            }
+        },
+        getLocationButton: function () {
+            path
+            switch (path) {
+                case '/search':
+                    return 'searchButton';
+                case '/searchresults':
+                    return 'resultsSearchButton';
+                default:
+                    return 'resultsSearchButton';
+            }
+        },
+        getSearchButton: function () {
+            path
+            switch (path) {
+                case '/search':
+                    return 'locationButton';
+                case '/searchresults':
+                    return 'resultsLocationButton';
+                default:
+                    return 'resultsLocationButton';
+            }
+        }
+    }
     return (
-        <div className="searchPage">
             <form>
                 <Link to='searchresults'>
                     <button
-                        className="searchButton"
+                        className={changeClass.getLocationButton()}
                         onClick={() => props.handleUserInput(coords)}>
-                        <i className="material-icons md-light">location_on</i>
+                        <i className={changeClass.colorChange()}>location_on</i>
                     </button>
                 </Link>
                 <input
-                    className="searchBar"
+                    className={changeClass.getClassBar()}
                     ref={node => input = node}
                     type='text'
                 >
                 </input>
                 <Link to='searchresults'>
                     <button
-                        className="searchButton"
+                        className={changeClass.getSearchButton()}
                         onClick={() => props.handleUserInput(input.value)}>
-                        <i className="material-icons md-light">search</i>
+                        <i className={changeClass.colorChange()}>search</i>
                     </button>
                 </Link>
             </form>
-        </div>
     )
+}
+
+SearchBar.contextTypes = {
+    router: React.PropTypes.object
 }
 
 export default SearchBar
