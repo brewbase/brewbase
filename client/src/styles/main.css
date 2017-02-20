@@ -325,6 +325,10 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 20px;
     }
 
+    .searchResultsContainer {
+        display: none;
+    }
+
     /* Wrap card container component in this for scrolling */
     .content {
         position: fixed;
