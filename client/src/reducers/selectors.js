@@ -7,3 +7,13 @@ export function getFavoriteBreweryIds(state) {
     }
     return favoriteBreweryIds
 }
+
+export function getFavoriteBrewIds(state) {
+    let favoriteBrewIds
+    if (state.favoriteBrews) {
+        favoriteBrewIds = state.favoriteBrews.map(b => b.id)
+    } else {
+        favoriteBrewIds = state.map(b => b.id)
+    }
+    return favoriteBrewIds
+}

@@ -11,7 +11,7 @@ export default function favoriteBreweriesReducer(state = [], action) {
                 return [
                     ...state.slice(0, breweryIndex),
                     ...state.slice(breweryIndex + 1, state.length)
-                ];
+                ]
             } else {
                 return [...state, action.brewery]
             }
