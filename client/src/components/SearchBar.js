@@ -2,13 +2,6 @@ import React from 'react'
 import {Link} from 'react-router'
 import '../styles/main.css'
 
-const inputStyles = {
-    border: '0',
-    background: 'transparent',
-    outline: '0',
-    borderBottom: '1px solid black'
-}
-
 const SearchBar = (props) => {
     let coords
     let input
@@ -22,31 +15,30 @@ const SearchBar = (props) => {
     }
     getLocation()
     return (
-        <form>
-            <Link to='searchresults'>
-                <button
-                    className="searchButton"
-                    onClick={() => props.handleUserInput(coords)}>
-                    <i className="material-icons md-light">location_on</i>
-                </button>
-            </Link>
-            <input
-                className="searchBar"
-                ref={node => input = node}
-                type='text'
-                style={inputStyles}
-                placeholder='ex. Utah'
-            >
-            </input>
-            <Link to='searchresults'>
+        <div className="searchPage">
+            <form>
+                <Link to='searchresults'>
+                    <button
+                        className="searchButton"
+                        onClick={() => props.handleUserInput(coords)}>
+                        <i className="material-icons md-light">location_on</i>
+                    </button>
+                </Link>
                 <input
-                    onClick={() => props.handleUserInput(input.value)}
-                    type='submit'
-                    value='Search'
+                    className="searchBar"
+                    ref={node => input = node}
+                    type='text'
                 >
                 </input>
-            </Link>
-        </form>
+                <Link to='searchresults'>
+                    <button
+                        className="searchButton"
+                        onClick={() => props.handleUserInput(input.value)}>
+                        <i className="material-icons md-light">search</i>
+                    </button>
+                </Link>
+            </form>
+        </div>
     )
 }
 

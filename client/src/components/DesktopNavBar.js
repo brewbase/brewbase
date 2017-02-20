@@ -4,14 +4,14 @@ import '../styles/main.css'
 
 const DesktopNavBar = (props) => (
     <div className='desktopNav'>
-        <Link to='/search'>
+        <Link className="headerLink" to='/search'>
             <span className='companyName'>BREWBASE</span>
         </Link>
         <div className='rightSideItems'>
-            <Link to='/search'>
+            <Link className="headerLink" to='/search'>
                 <span className='searchText'>Search</span>
             </Link>
-            <Link to='/favorites'>
+            <Link className="headerLink" to='/favorites'>
                 <span className='favoritesText'>Favorites</span>
             </Link>
             <Link to='/profile'>
