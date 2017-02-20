@@ -1,11 +1,11 @@
-import React from 'react';
-import { connect } from 'react-redux';
-import Brewery from '../components/Brewery.js';
-import getBreweries from '../actions/getBreweries.js';
-import updateActiveBrewery from '../actions/updateActiveBrewery.js';
-import updateFavoriteBreweries from '../actions/updateFavoriteBreweries.js';
-import { getFavoriteBreweryIds } from '../reducers/selectors.js';
-import '../styles/main.css';
+import React from 'react'
+import { connect } from 'react-redux'
+import Brewery from '../components/Brewery.js'
+import getBreweries from '../actions/getBreweries.js'
+import updateActiveBrewery from '../actions/updateActiveBrewery.js'
+import updateFavoriteBreweries from '../actions/updateFavoriteBreweries.js'
+import { getFavoriteBreweryIds } from '../reducers/selectors.js'
+import '../styles/main.css'
 
 class Breweries extends React.Component {
     componentDidMount() {
