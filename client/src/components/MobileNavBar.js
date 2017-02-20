@@ -7,7 +7,10 @@ const MobileNavBar = () => (
             <i className='material-icons md-light'>home</i>
             <i className='material-icons md-light'>search</i>
             <i className='material-icons md-light star'>starrate</i>
-            <i className='material-icons md-light'>account_circle</i>
+            <a href='/profile'>
+                <i className='material-icons md-light'>account_circle</i>
+            </a>
+
         </footer>
     </div>
 )

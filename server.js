@@ -7,6 +7,8 @@ const pug = require('pug');
 const ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn();
 const router = express.Router();
 const session = require('express-session');
+var cors = require('cors');
+var path = require('path');
 
 // PASSPORT CONFIGURATION FOR AUTH0
 var strategy = new Auth0Strategy({
@@ -30,37 +32,40 @@ passport.deserializeUser(function(user, done) {
 });
 // END PASSPORT CONFIGURATION
 
-//MASSIVE DB SETUP
-// const db = massive.connectSync({
-//   connectionString: 'postgres://postgres:@localhost/FILL IN NAME'
-// });
-
 // const fav_beer_ctrl = require('./db/controllers/favoriteBeer');
 // const fav_brewery_ctrl = require('./db/controllers/favoriteBrewery');
+// const user_ctrl = require('./db/controllers/userCtrl.js');
 
 const app = module.exports = express();
 
-// app.use(express.static(__dirname + '/client'));
+app.use(express.static(path.join(__dirname + '/views')));
 app.use(bodyParser.json());
 app.use(session({secret: 'hi'}));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors());
 
-// app.set('db', db);
+//MASSIVE DB SETUP
+var connString = "postgres://cesargarcia:@localhost/assessbox";
+var db = massive.connect({
+    connectionString: connString
+}, function(err, localdb) {
+    db = localdb;
+    app.set('db', db);
+})
 
 // ENDPOINTS FOR AUTH0
 app.get('/login', function(req, res, next) {
     res.render('login.pug');
 });
 
-app.get('/user', function(req, res, next) {
-    console.log('USER')
-    res.render('user.pug', {
-        user: req.user,
-        userProfile: JSON.stringify(req.user, null, '  ')
-    });
-    console.log('This is the info ->', req.user)
-});
+// app.post('/user', ensureLoggedIn, function(req, res, next) {
+//     res.render('user.pug', {
+//         user: req.user,
+//         userProfile: JSON.stringify(req.user, null, '  ')
+//     });
+//     console.log('This is the info ->', req.user)
+// });
 
 app.get('/logout', function(req, res) {
     req.logout();
@@ -68,8 +73,19 @@ app.get('/logout', function(req, res) {
 });
 
 app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/url-if-something-fails'}), function(req, res) {
-    res.redirect('http://localhost:3000/');
+    // res.redirect('http://localhost:3000/search');
+    res.redirect('http://localhost:4000/user');
 });
+
+app.get('/user', function(req, res, next) {
+    db.add_user([
+        req.user.id, req.user.nickname, req.user.picture
+    ], (err, result) => {
+        res.end();
+        console.log(result)
+    });
+    res.redirect('http://localhost:3000/')
+})
 
 //ENDPOINTS FOR BREWBASE
 // app.get('/api/favoriteBreweries', fav_brewery_ctrl.index);
@@ -82,5 +98,5 @@ app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/url-if-s
 // app.delete('/api/favoriteBrews/:beerId', fav_beer_ctrl.destroy);
 
 app.listen(4000, () => {
-    console.log("App is listening on port 3000");
+    console.log("App is listening on port 4000");
 });
