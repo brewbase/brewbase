@@ -229,7 +229,6 @@ a {
 
 .breweryResultsContainer {
     width:100vw;
-    margin-left: 18px;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -256,7 +255,7 @@ a {
     box-shadow: 0 2px 2px 0 grey;
     border-color: #B4B4B4;
     display: flex;
-    position: relative
+    position: relative;
 }
 
 .favStar {
@@ -311,6 +310,48 @@ a {
     height: auto;
 }
 
+<<<<<<< HEAD
+.toggleContainer {
+    display: flex;
+    margin-top: 10px;
+}
+
+.favBreweriesBtnContainer,
+.favBrewsBtnContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.active {
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.active:focus,
+.disable:focus {
+    outline: 0 !important;
+}
+
+.disable {
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    background: transparent;
+=======
 .infoPage {
     display: flex;
     flex-direction: column;
@@ -333,6 +374,7 @@ a {
 
 .infoBox {
     width: 33%;
+>>>>>>> master
 }
 
 
@@ -445,7 +487,13 @@ a {
         overflow: auto;
     }
 
-    .breweryResultsContainer {
+    .toggleContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .breweryResultsContainerFavorites {
         width:92vw;
         margin-left: 18px;
         margin-top: 10px;
@@ -454,6 +502,12 @@ a {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        top: 19vh;
+        bottom: 8.2vh;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        position: fixed;
     }
 
     .cardHolderContainer {

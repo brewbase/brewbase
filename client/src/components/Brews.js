@@ -26,7 +26,8 @@ const Brews = (props) => (
                     </i>
                 </div>
         ))}
-    </div>
+
+</div>
 )
 
 export default Brews
