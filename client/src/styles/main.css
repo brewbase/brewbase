@@ -347,6 +347,12 @@ a {
 
 .infoAddress {
     font-size: 16px;
+    text-align: center;
+    color: blue;
+    cursor: pointer;
+}
+.infoLink {
+    color: inherit;
 }
 
 .infoDescription {
@@ -355,6 +361,7 @@ a {
 
 .mapContainer {
     padding-left: 15px;
+    align-self: center;
 }
 
 .brewContainer {

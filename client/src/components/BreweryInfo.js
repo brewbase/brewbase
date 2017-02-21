@@ -5,6 +5,10 @@ import '../styles/main.css'
 const BreweryInfo = (props) => {
     let lat = props.brewery.latitude,
         long = props.brewery.longitude,
+        street = props.brewery.streetAddress,
+        city = props.brewery.locality,
+        state = props.brewery.region,
+        zip = props.brewery.postalCode,
         image;
     props.brewery.brewery.images ? image = props.brewery.brewery.images.icon : null
     console.log(props)
@@ -26,8 +30,9 @@ const BreweryInfo = (props) => {
                                     {props.brewery.brewery.name}
                                 </h1>
                                 <div className='infoAddress'>
-                                    {props.brewery.streetAddress}<br />
-                                    {props.brewery.locality}, {props.brewery.region} {props.brewery.postalCode}
+                                    <a className="infoLink" href={"http://maps.google.com/?q=" + street + ", " + city + ", " + state}>
+                                    {street}<br />
+                                        {city}, {state} {zip}</a>
                                 </div>
                             </div>
                         </div>
