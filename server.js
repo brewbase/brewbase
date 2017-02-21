@@ -47,9 +47,8 @@ app.use(passport.session());
 app.use(cors());
 
 //MASSIVE DB SETUP
-var connString = config.connString;
 var db = massive.connect({
-    connectionString: connString
+    connectionString: config.connString
 }, function(err, localdb) {
     db = localdb;
     app.set('db', db);
