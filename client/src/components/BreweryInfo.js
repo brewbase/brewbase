@@ -36,7 +36,9 @@ const BreweryInfo = (props) => {
                                 </div>
                             </div>
                         </div>
+                            <div className="infoRow">
                         <p className="infoDescription">{props.brewery.brewery.description}</p>
+                            </div>
                     </div>
                     </div>
                 <div className="mapContainer">
