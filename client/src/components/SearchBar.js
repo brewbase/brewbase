@@ -17,7 +17,6 @@ const SearchBar = (props, context) => {
     getLocation()
     const changeClass = {
         colorChange: function () {
-            path
             switch (path) {
                 case '/search':
                     return 'material-icons md-light';
@@ -28,7 +27,6 @@ const SearchBar = (props, context) => {
             }
         },
         getClassBar: function (){
-            path
             switch (path) {
                 case '/search':
                     return 'searchBar';
@@ -39,7 +37,6 @@ const SearchBar = (props, context) => {
             }
         },
         getLocationButton: function () {
-            path
             switch (path) {
                 case '/search':
                     return 'searchButton';
@@ -50,7 +47,6 @@ const SearchBar = (props, context) => {
             }
         },
         getSearchButton: function () {
-            path
             switch (path) {
                 case '/search':
                     return 'locationButton';
@@ -62,28 +58,28 @@ const SearchBar = (props, context) => {
         }
     }
     return (
-            <form>
-                <Link to='searchresults'>
-                    <button
-                        className={changeClass.getLocationButton()}
-                        onClick={() => props.handleUserInput(coords)}>
-                        <i className={changeClass.colorChange()}>location_on</i>
-                    </button>
-                </Link>
-                <input
-                    className={changeClass.getClassBar()}
-                    ref={node => input = node}
-                    type='text'
-                >
-                </input>
-                <Link to='searchresults'>
-                    <button
-                        className={changeClass.getSearchButton()}
-                        onClick={() => props.handleUserInput(input.value)}>
-                        <i className={changeClass.colorChange()}>search</i>
-                    </button>
-                </Link>
-            </form>
+        <form>
+            <Link to='searchresults'>
+                <button
+                    className={changeClass.getLocationButton()}
+                    onClick={() => props.handleUserInput(coords)}>
+                    <i className={changeClass.colorChange()}>location_on</i>
+                </button>
+            </Link>
+            <input
+                className={changeClass.getClassBar()}
+                ref={node => input = node}
+                type='text'
+            >
+            </input>
+            <Link to='searchresults'>
+                <button
+                    className={changeClass.getSearchButton()}
+                    onClick={() => props.handleUserInput(input.value)}>
+                    <i className={changeClass.colorChange()}>search</i>
+                </button>
+            </Link>
+        </form>
     )
 }
 

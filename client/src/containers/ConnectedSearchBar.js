@@ -1,10 +1,10 @@
 import {connect} from 'react-redux';
 import SearchBar from '../components/SearchBar.js';
-import updateUserInput from '../actions/updateUserInput.js';
+import getBreweries from '../actions/getBreweries.js';
 
 const mapDispatchToProps = (dispatch) => ({
     handleUserInput: (input) => {
-        dispatch(updateUserInput(input))
+        dispatch(getBreweries(input))
     }
 })
 
