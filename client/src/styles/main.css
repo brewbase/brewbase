@@ -366,12 +366,12 @@ a {
 
 .breweryInfoContainer {
     width: 100%;
-    margin-top: 30px;
+    padding-top: 30px;
     display: flex;
     justify-content: center;
 }
 .breweryImgContainer {
-    width: 30%;
+    width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -379,11 +379,12 @@ a {
 }
 
 .infoBox {
-    width: 33%;
+    width: 50%;
 }
 
 
 .infoRow {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
 }
@@ -391,8 +392,8 @@ a {
 .infoCol {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    width: 70%
 }
 
 .infoAddress {
@@ -406,7 +407,8 @@ a {
 }
 
 .infoDescription {
-    margin-top: 5px;
+    line-height: 20px;
+    width: 85%;
     text-align: center;
 }
 
@@ -487,6 +489,7 @@ a {
     .mapContainer {
         display: none;
     }
+
 
     .infoBox {
         width: 100%;
