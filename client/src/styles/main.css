@@ -491,6 +491,19 @@ a {
         margin: 10px;
     }
 
+    .mapContainer {
+        display: none;
+    }
+
+    .infoBox {
+        width: 100%;
+    }
+
+    .infoDescription {
+        width:95%;
+        margin: 10px;
+    }
+
     .infoText {
         align-items: center;
     }
