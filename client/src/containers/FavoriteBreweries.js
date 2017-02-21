@@ -9,7 +9,8 @@ import '../styles/main.css'
 class FavoriteBreweries extends React.Component {
     render() {
         return (
-            <div className='breweryResultsContainer'>
+            <div className='breweryResultsContainerFavorites'>
+                <div className='cardHolderContainer'>
                 {this.props.favoriteBreweries.map((b, i) => (
                     <Brewery
                         key={i}
@@ -19,6 +20,7 @@ class FavoriteBreweries extends React.Component {
                         isFavorited={this.props.favoriteBreweryIds.includes(b.brewery.id)}
                     />
                 ))}
+                </div>
             </div>
         );
     }

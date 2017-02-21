@@ -85,6 +85,7 @@ a {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 10px 0 black;
+    flex: 0 0 auto;
 }
 
 .headerLink {
@@ -140,10 +141,16 @@ a {
             rgba(0,0,0,0.7)),
     url('../media/search.jpg') center no-repeat;
     background-size: cover;
-    height: 100vh; /* May need to change this when incorporating header and mobile-nav */
+    display: flex;
+    flex-direction: column;
+}
+
+
+.searchBox {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 93vh
 }
 
 .searchBar {
@@ -192,7 +199,7 @@ a {
     width: 500px;
     border: 0;
     outline: 0;
-    color: white;
+    color: black;
     background: transparent;
     border-bottom: 2px solid black;
     font-size: 20px;
@@ -215,9 +222,13 @@ a {
     height: 38px;
 }
 
+.resultsSearchButton,
+.resultsLocationButton:hover {
+    cursor: pointer;
+}
+
 .breweryResultsContainer {
     width:100vw;
-    margin-left: 18px;
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -231,6 +242,8 @@ a {
     min-width:400px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .cardContainer {
@@ -242,7 +255,7 @@ a {
     box-shadow: 0 2px 2px 0 grey;
     border-color: #B4B4B4;
     display: flex;
-    position: relative
+    position: relative;
 }
 
 .favStar {
@@ -297,7 +310,102 @@ a {
     height: auto;
 }
 
+.toggleContainer {
+    display: flex;
+    margin-top: 10px;
+}
 
+.favBreweriesBtnContainer,
+.favBrewsBtnContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.active {
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    background: transparent;
+    text-decoration: underline;
+    text-decoration-color: black;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.active:focus,
+.disable:focus {
+    outline: 0 !important;
+}
+
+.disable {
+    border: none;
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    background: transparent;
+}
+
+.infoPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.breweryInfoContainer {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.breweryImgContainer {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.infoBox {
+    width: 33%;
+}
+
+
+.infoRow {
+    display: flex;
+}
+
+.infoCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%
+}
+
+.infoAddress {
+    font-size: 16px;
+    text-align: center;
+    color: blue;
+    cursor: pointer;
+}
+.infoLink {
+    color: inherit;
+}
+
+.infoDescription {
+    text-align: center;
+}
+
+.mapContainer {
+    padding-left: 15px;
+    align-self: center;
+}
 
 
 /* Going to mobile version */
@@ -314,6 +422,7 @@ a {
         text-decoration: none;
         color: black;
     }
+
 
     .headerMobile {
         background-color: #2B2B28;
@@ -359,6 +468,10 @@ a {
         font-size: 20px;
     }
 
+    .searchBox {
+        height: 92vh;
+    }
+
     .searchResultsContainer {
         display: none;
     }
@@ -373,7 +486,13 @@ a {
         overflow: auto;
     }
 
-    .breweryResultsContainer {
+    .toggleContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .breweryResultsContainerFavorites {
         width:92vw;
         margin-left: 18px;
         margin-top: 10px;
@@ -382,6 +501,12 @@ a {
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+        top: 19vh;
+        bottom: 8.2vh;
+        left: 0;
+        right: 0;
+        overflow: auto;
+        position: fixed;
     }
 
     .cardHolderContainer {

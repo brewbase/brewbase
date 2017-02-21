@@ -3,16 +3,20 @@ import React from 'react'
 const FavToggle = (props) => {
     if (props.favorites === 'breweries') {
         return (
-            <div>
-                <button className='active'>Breweries</button>
-                <button onClick={() => props.handleToggleClick()}>Brews</button>
+            <div className='toggleContainer'>
+                <div className='favBreweriesBtnContainer'>
+                    <button className='active'>Breweries</button>
+                    <button className='disable' onClick={() => props.handleToggleClick()}>Brews</button>
+                </div>
             </div>
         )
     } else {
         return (
-            <div>
-                <button onClick={() => props.handleToggleClick()}>Breweries</button>
-                <button className='active'>Brews</button>
+            <div className='toggleContainer'>
+                <div className='favBrewsBtnContainer'>
+                    <button className='disable' onClick={() => props.handleToggleClick()}>Breweries</button>
+                    <button className='active'>Brews</button>
+                </div>
             </div>
         )
     }

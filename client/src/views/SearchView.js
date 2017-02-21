@@ -7,7 +7,11 @@ const SearchView = (props) => (
     <div>
         <DesktopNavBar />
         <MobileNavBar />
-        <ConnectedSearchBar />
+        <div className="searchPage">
+            <div className="searchBox">
+                <ConnectedSearchBar />
+            </div>
+        </div>
     </div>
 )
 
