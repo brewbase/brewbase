@@ -10,13 +10,13 @@ import FavoritesView from './views/FavoritesView.js'
 
 const App = (props) => (
     <Router history={browserHistory}>
-        <Route path='/' component={TwentyOneBox} />
-        <Route path='/search' component={SearchView} />
-        <Route path='/denied' component={Sorry} />
-        <Route path='/searchresults' component={SearchResultsView} />
-        <Route path='/searchresults/moreinfo' component={SearchResultsMoreInfoView} />
-        <Route path='/favorites' component={FavoritesView} />
-        <Route path='/profile' component={ProfileView} />
+        <Route path='/' component={TwentyOneBox}/>
+        <Route path='/search' component={SearchView}/>
+        <Route path='/denied' component={Sorry}/>
+        <Route path='/searchresults' component={SearchResultsView}/>
+        <Route path='/searchresults/moreinfo' component={SearchResultsMoreInfoView}/>
+        <Route path='/favorites' component={FavoritesView}/>
+        <Route path='/profile' component={ProfileView}/>
     </Router>
 )
 
