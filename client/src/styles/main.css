@@ -266,6 +266,7 @@ a {
 }
 
 .textContainer {
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -306,7 +307,12 @@ a {
 
 .breweryImg,
 .beerImg {
-    width: 75px;
+    width: 116px;
+    height: auto;
+}
+
+.moreInfoImg {
+    width: 256px;
     height: auto;
 }
 
@@ -574,6 +580,11 @@ a {
     .abv,
     .ibu {
         margin: 0;
+    }
+
+    .moreInfoImg {
+        width: 116px;
+        height: auto;
     }
 }
 

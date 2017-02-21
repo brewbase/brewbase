@@ -5,14 +5,14 @@ import '../styles/main.css'
 const Brewery = (props) => {
     let image
     // eslint-disable-next-line
-    props.brewery.brewery.images ? image = props.brewery.brewery.images.icon : null
+    props.brewery.brewery.images ? image = props.brewery.brewery.images.squareMedium : null
     return (
             <div className='cardContainer'>
                 <div className='imgContainer'>
                     <img
                         className='breweryImg'
                         src={image}
-                        alt={props.brewery.brewery.name}
+                        alt="No image available"
                     />
                 </div>
                 <div className='textContainer'>
