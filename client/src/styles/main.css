@@ -379,6 +379,7 @@ a {
 
 .infoRow {
     display: flex;
+    justify-content: center;
 }
 
 .infoCol {
@@ -399,6 +400,7 @@ a {
 }
 
 .infoDescription {
+    margin-top: 5px;
     text-align: center;
 }
 
@@ -475,7 +477,23 @@ a {
     .searchResultsContainer {
         display: none;
     }
+    
+    .mapContainer {
+        display: none;
+    }
 
+    .infoBox {
+        width: 100%;
+    }
+
+    .infoDescription {
+        width:95%;
+        margin: 10px;
+    }
+
+    .infoText {
+        align-items: center;
+    }
     /* Wrap card container component in this for scrolling */
     .content {
         position: fixed;
