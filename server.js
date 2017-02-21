@@ -39,7 +39,7 @@ passport.deserializeUser(function(user, done) {
 
 const app = module.exports = express();
 
-app.use(express.static(path.join(__dirname + '/client/src/views')));
+app.use(express.static(path.join(__dirname + '/views')));
 app.use(bodyParser.json());
 app.use(session({secret: 'hi'}));
 app.use(passport.initialize());
