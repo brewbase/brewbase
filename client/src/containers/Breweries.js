@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Brewery from '../components/Brewery.js'
+import ConnectedSearchBar from '../containers/ConnectedSearchBar.js'
 import getBreweries from '../actions/getBreweries.js'
 import updateActiveBrewery from '../actions/updateActiveBrewery.js'
 import updateFavoriteBreweries from '../actions/updateFavoriteBreweries.js'
@@ -28,13 +29,7 @@ class Breweries extends React.Component {
             <div className="searchResultsContainer">
                   <div className="resultsSearchBarContainer">
                     <h3 className="findABrewery">Find a Brewery</h3>
-                    <form className="resultsSearchInput">
-                        <button className="resultsLocationButton">
-                            <i className="material-icons md-dark">location_on</i>
-                        </button>
-                        <input className="resultsSearchBar" placeholder="Enter a state or city"></input>
-                        <button className="resultsSearchButton"><i className="material-icons md-dark searchIcon">search</i></button>
-                    </form>
+                    <ConnectedSearchBar/>
                   </div>
               </div>
             <div className='breweryResultsContainer'>
