@@ -1,3 +1,4 @@
+const config = require('./congig');
 const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
@@ -13,8 +14,8 @@ var path = require('path');
 // PASSPORT CONFIGURATION FOR AUTH0
 var strategy = new Auth0Strategy({
     domain: 'brewbase.auth0.com',
-    clientID: 'j0ICHuTbfDJXIrcQQBNyse42Ec48ul0E',
-    clientSecret: 'V2v7NOWRS0J1SBCzTkWpECgvUVOfMVflPQVMFfTYJRHgD2fYoXyckgiJTdKhE5AI',
+    clientID: config.clientID,
+    clientSecret: config.clientSecret,
     callbackURL: 'http://localhost:4000/callback'
 }, function(accessToken, refreshToken, extraParams, profile, done) {
     // accessToken is the token to call Auth0 API (not needed in the most cases)
@@ -46,9 +47,8 @@ app.use(passport.session());
 app.use(cors());
 
 //MASSIVE DB SETUP
-var connString = "postgres://cesargarcia:@localhost/assessbox";
 var db = massive.connect({
-    connectionString: connString
+    connectionString: config.connString
 }, function(err, localdb) {
     db = localdb;
     app.set('db', db);
