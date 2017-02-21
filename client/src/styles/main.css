@@ -310,7 +310,6 @@ a {
     height: auto;
 }
 
-<<<<<<< HEAD
 .toggleContainer {
     display: flex;
     margin-top: 10px;
@@ -351,7 +350,8 @@ a {
     height: 40px;
     font-size: 15px;
     background: transparent;
-=======
+}
+
 .infoPage {
     display: flex;
     flex-direction: column;
@@ -374,7 +374,6 @@ a {
 
 .infoBox {
     width: 33%;
->>>>>>> master
 }
 
 
