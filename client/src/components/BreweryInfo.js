@@ -10,7 +10,7 @@ const BreweryInfo = (props) => {
         state = props.brewery.region,
         zip = props.brewery.postalCode,
         image;
-    props.brewery.brewery.images ? image = props.brewery.brewery.images.icon : null
+    props.brewery.brewery.images ? image = props.brewery.brewery.images.squareMedium : null
     console.log(props)
  return (
     <div className="infoPage">
@@ -20,7 +20,7 @@ const BreweryInfo = (props) => {
                             <div className="infoRow">
                                 <div className="breweryImgContainer">
                                     <img
-                                        className='breweryImg'
+                                        className='moreInfo'
                                         src={image}
                                         alt={props.brewery.brewery.name}
                                     />

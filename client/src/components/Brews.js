@@ -2,13 +2,16 @@ import React from 'react'
 
 const Brews = (props) => (
     <div className='cardHolderContainer'>
-        {props.brews.map((b, i) => (
+        {props.brews.map((b, i) => {
+            let img
+            b.labels ? img = b.labels.medium : null
+            return(
                 <div className='cardContainer' key={i}>
                     <div className='imgContainer'>
                         <img
                             className='breweryImg'
-                            src='http://www.thegoodshoppingguide.com/wp-content/uploads/2013/03/beer.jpg'
-                            alt='beer'
+                            src={img}
+                            alt="No image available"
                         />
                     </div>
                     <div className='textContainer'>
@@ -25,7 +28,8 @@ const Brews = (props) => (
                         {props.favoriteBrewIds.includes(b.id) ? 'star' : 'star_border'}
                     </i>
                 </div>
-        ))}
+            )
+        })}
 
 </div>
 )
