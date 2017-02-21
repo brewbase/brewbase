@@ -1,10 +1,9 @@
 import React from 'react'
 
 const Brews = (props) => (
-    <div>
+    <div className='cardHolderContainer'>
         {props.brews.map((b, i) => (
-            <div key={i} className='cardHolderContainer'>
-                <div className='cardContainer'>
+                <div className='cardContainer' key={i}>
                     <div className='imgContainer'>
                         <img
                             className='breweryImg'
@@ -26,7 +25,6 @@ const Brews = (props) => (
                         {props.favoriteBrewIds.includes(b.id) ? 'star' : 'star_border'}
                     </i>
                 </div>
-            </div>
         ))}
     </div>
 )

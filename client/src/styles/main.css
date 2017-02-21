@@ -243,6 +243,8 @@ a {
     min-width:400px;
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
 }
 
 .cardContainer {
@@ -309,7 +311,60 @@ a {
     height: auto;
 }
 
+.infoPage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.breweryInfoContainer {
+    width: 100%;
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.breweryImgContainer {
+    width: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.infoBox {
+    width: 33%;
+}
+
+
+.infoRow {
+    display: flex;
+}
+
+.infoCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 70%
+}
+
+.infoAddress {
+    font-size: 16px;
+    text-align: center;
+    color: blue;
+    cursor: pointer;
+}
+.infoLink {
+    color: inherit;
+}
+
+.infoDescription {
+    text-align: center;
+}
+
+.mapContainer {
+    padding-left: 15px;
+    align-self: center;
+}
 
 
 /* Going to mobile version */
