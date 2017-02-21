@@ -20,7 +20,7 @@ const BreweryInfo = (props) => {
                             <div className="infoRow">
                                 <div className="breweryImgContainer">
                                     <img
-                                        className='moreInfo'
+                                        className='moreInfoImg'
                                         src={image}
                                         alt={props.brewery.brewery.name}
                                     />
@@ -39,11 +39,11 @@ const BreweryInfo = (props) => {
                             <div className="infoRow">
                         <p className="infoDescription">{props.brewery.brewery.description}</p>
                             </div>
-                    </div>
-                    </div>
+                        </div>
+                </div>
                 <div className="mapContainer">
-                <img src={"https://maps.googleapis.com/maps/api/staticmap?autoscale=2&size=500x300&maptype=roadmap&key=AIzaSyDx5EOHOD25TDbhXYY7YA50aFcTmhXubpo&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:A%7C" + lat + ",+" + long} alt="brewery map"/>
-            </div>
+                    <img src={"https://maps.googleapis.com/maps/api/staticmap?autoscale=2&size=500x400&maptype=roadmap&key=AIzaSyDx5EOHOD25TDbhXYY7YA50aFcTmhXubpo&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xff0000%7Clabel:A%7C" + lat + ",+" + long} alt="brewery map"/>
+                </div>
             </div>
         <h1> Brews </h1>
         <Brews
