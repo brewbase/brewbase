@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Brews = (props) => (
-    <div>
+    <div className="brewContainer">
         {props.brews.map((b, i) => (
             <div key={i} className='cardHolderContainer'>
                 <div className='cardContainer'>
