@@ -4,6 +4,7 @@ import '../styles/main.css'
 
 const Brewery = (props) => {
     let image
+    // eslint-disable-next-line
     props.brewery.brewery.images ? image = props.brewery.brewery.images.icon : null
     return (
         <div className='cardHolderContainer'>

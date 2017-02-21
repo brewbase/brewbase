@@ -2,16 +2,12 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Brewery from '../components/Brewery.js'
 import ConnectedSearchBar from '../containers/ConnectedSearchBar.js'
-import getBreweries from '../actions/getBreweries.js'
 import updateActiveBrewery from '../actions/updateActiveBrewery.js'
 import updateFavoriteBreweries from '../actions/updateFavoriteBreweries.js'
 import { getFavoriteBreweryIds } from '../reducers/selectors.js'
 import '../styles/main.css'
 
 class Breweries extends React.Component {
-    componentDidMount() {
-        this.props.fetchBreweries(this.props.input)
-    }
     renderBreweries = () => (
         this.props.breweries.map((b, i) => (
             <Brewery
@@ -60,9 +56,6 @@ const mapStateToProps = (state) => (
 
 const mapDispatchToProps = (dispatch) => (
     {
-        fetchBreweries: (input) => {
-            dispatch(getBreweries(input))
-        },
         onBreweryClick: (brewery) => {
             dispatch(updateActiveBrewery(brewery))
         },
