@@ -1,4 +1,4 @@
-const config = require('./congig');
+const config = require('./client/config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
@@ -39,7 +39,7 @@ passport.deserializeUser(function(user, done) {
 
 const app = module.exports = express();
 
-app.use(express.static(path.join(__dirname + '/views')));
+app.use(express.static(path.join(__dirname + '/client/src/views')));
 app.use(bodyParser.json());
 app.use(session({secret: 'hi'}));
 app.use(passport.initialize());
@@ -81,10 +81,23 @@ app.get('/user', function(req, res, next) {
     db.add_user([
         req.user.id, req.user.nickname, req.user.picture
     ], (err, result) => {
-        res.end();
-        console.log(result)
+        if (err) {
+            res.redirect('/user/' + req.user.id);
+        } else {
+            res.redirect('http://localhost:3000/')
+            console.log(result)
+        }
     });
-    res.redirect('http://localhost:3000/')
+})
+
+app.get('/user/:auth0id', (req, res) => {
+    res.redirect('http://localhost:3000/profile?id=' + req.params.auth0id);
+})
+
+app.get('/users/:auth0id', ensureLoggedIn, (req, res) => {
+    db.get_user_info([req.params.auth0id], (err, result) => {
+        res.send(result[0])
+    })
 })
 
 //ENDPOINTS FOR BREWBASE
