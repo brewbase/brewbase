@@ -8,7 +8,8 @@ import '../styles/main.css'
 class FavoriteBrews extends React.Component {
     render() {
         return (
-            <div className='breweryResultsContainer'>
+
+            <div className='breweryResultsContainerFavorites'>
                 <Brews
                     onStarClick={this.props.onStarClick}
                     brews={this.props.favoriteBrews}
