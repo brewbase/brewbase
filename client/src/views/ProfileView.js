@@ -10,8 +10,11 @@ class ProfileView extends React.Component {
             <div>
                 <DesktopNavBar/>
                 <ConnectedMobileNavBar/>
-                {console.log(this.props.isLoggedIn)}
-                {this.context.router.location.query.id && !this.props.isLoggedIn ? this.props.login(this.context.router.location.query.id) : null}
+                {
+                    this.context.router.location.query.id && !this.props.isLoggedIn ? this.props.login(this.context.router.location.query.id)
+                    :
+                    null
+                }
             </div>
         )
     }

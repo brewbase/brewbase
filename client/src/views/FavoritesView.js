@@ -13,9 +13,11 @@ class FavoritesView extends React.Component {
                 <DesktopNavBar />
                 <ConnectedMobileNavBar />
                 <ConnectedFavToggle />
-                {this.props.favorites === 'brews' ?
-                (<FavoriteBrews />) :
-                (<FavoriteBreweries />)}
+                {
+                    this.props.favorites === 'brews' ?
+                    (<FavoriteBrews />) :
+                    (<FavoriteBreweries />)
+                }
             </div>
         )
     }

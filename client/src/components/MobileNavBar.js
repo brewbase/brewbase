@@ -9,25 +9,24 @@ const MobileNavBar = (props) => {
             <div className="headerMobile">BREWBASE</div>
             <footer className='navMobile'>
                 <Link to='/'>
-                <i className='material-icons md-light'>home</i>
+                    <i className='material-icons md-light'>home</i>
                 </Link>
-
                 <Link to='/search'>
-                <i className='material-icons md-light'>search</i>
+                    <i className='material-icons md-light'>search</i>
                 </Link>
-
                 <Link to='/favorites'>
-                <i className='material-icons md-light star'>starrate</i>
+                    <i className='material-icons md-light star'>starrate</i>
                 </Link>
-
-                {props.userId === false ? (<Link href={`//localhost:4000/user/${urlExtension}`}>
-                    <i className='material-icons md-light'>account_circle</i>
-                </Link>):
-                (<Link to='/'>
-                    <i className='material-icons md-light'>account_circle</i>
-                </Link>)
+                {
+                    props.userId === false ?
+                    (<Link href={`//localhost:4000/user/${urlExtension}`}>
+                        <i className='material-icons md-light'>account_circle</i>
+                    </Link>)
+                    :
+                    (<Link to='/'>
+                        <i className='material-icons md-light'>account_circle</i>
+                    </Link>)
                 }
-
             </footer>
         </div>
     )

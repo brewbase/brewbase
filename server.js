@@ -83,7 +83,6 @@ app.get('/user', function(req, res, next) {
             res.redirect('/user/' + req.user.id);
         } else {
             res.redirect('http://localhost:3000/')
-            console.log(result)
         }
     });
 })
