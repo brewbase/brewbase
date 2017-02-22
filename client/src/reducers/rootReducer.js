@@ -10,6 +10,7 @@ import favoritesReducer from './favoritesReducer.js'
 import favoriteBreweriesReducer from './favoriteBreweriesReducer.js'
 import favoriteBrewsReducer from './favoriteBrewsReducer.js'
 import userIdReducer from './userIdReducer.js'
+import userDataReducer from './userDataReducer.js'
 
 const rootReducer = combineReducers({
     breweries: breweriesReducer,
@@ -22,7 +23,9 @@ const rootReducer = combineReducers({
     favorites: favoritesReducer,
     favoriteBreweries: favoriteBreweriesReducer,
     favoriteBrews: favoriteBrewsReducer,
-    userId: userIdReducer
+    userId: userIdReducer,
+    userData: userDataReducer
+
 })
 
 export default rootReducer
