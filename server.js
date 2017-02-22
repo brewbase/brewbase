@@ -71,12 +71,10 @@ app.get('/logout', function(req, res) {
     req.logout();
     res.redirect('/login');
 });
-
 app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/url-if-something-fails'}), function(req, res) {
     // res.redirect('http://localhost:3000/search');
     res.redirect('http://localhost:4000/user');
 });
-
 app.get('/user', function(req, res, next) {
     db.add_user([
         req.user.id, req.user.nickname, req.user.picture
@@ -89,12 +87,10 @@ app.get('/user', function(req, res, next) {
         }
     });
 })
-
-app.get('/user/:auth0id', (req, res) => {
+app.get('/user/:auth0id', ensureLoggedIn, (req, res) => {
     res.redirect('http://localhost:3000/profile?id=' + req.params.auth0id);
 })
-
-app.get('/users/:auth0id', ensureLoggedIn, (req, res) => {
+app.get('/users/:auth0id', (req, res) => {
     db.get_user_info([req.params.auth0id], (err, result) => {
         res.send(result[0])
     })
