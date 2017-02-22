@@ -5,6 +5,6 @@ CREATE TABLE savedbrewery(
     imageurl TEXT,
     description TEXT,
     locality TEXT,
-    userId INTEGER,
+    userId VARCHAR(225),
     CONSTRAINT fk_savedbrewery_user FOREIGN KEY (userId) REFERENCES theuser("auth0id")
 );
