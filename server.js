@@ -77,12 +77,12 @@ app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/url-if-s
 });
 app.get('/user', function(req, res, next) {
     db.add_user([
-        req.user.id, req.user.nickname, req.user.picture
+        req.user.id, req.user.displayName, req.user.picture
     ], (err, result) => {
         if (err) {
             res.redirect('/user/' + req.user.id);
         } else {
-            res.redirect('http://localhost:3000/')
+            res.redirect('http://localhost:3000/search')
         }
     });
 })
