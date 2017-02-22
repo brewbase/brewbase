@@ -23,7 +23,7 @@ const MobileNavBar = (props) => {
                         <i className='material-icons md-light'>account_circle</i>
                     </Link>)
                     :
-                    (<Link href={`//localhost:4000/user/${urlExtension}`}>
+                    (<Link to={`/profile?id=${urlExtension}`}>
                         <i className='material-icons md-light'>account_circle</i>
                     </Link>)
                 }

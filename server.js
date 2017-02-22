@@ -69,7 +69,7 @@ app.get('/login', function(req, res, next) {
 
 app.get('/logout', function(req, res) {
     req.logout();
-    res.redirect('/login');
+    res.redirect('http://localhost:3000/');
 });
 app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/url-if-something-fails'}), function(req, res) {
     // res.redirect('http://localhost:3000/search');
