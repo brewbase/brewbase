@@ -1,4 +1,4 @@
-const config = require('./client/config');
+const config = require('./config');
 const express = require('express');
 const bodyParser = require('body-parser');
 const massive = require('massive');
