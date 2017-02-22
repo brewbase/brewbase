@@ -91,7 +91,7 @@ app.get('/user/:auth0id', ensureLoggedIn, (req, res) => {
 })
 app.get('/users/:auth0id', (req, res) => {
     db.get_user_info([req.params.auth0id], (err, result) => {
-        res.send(result[0])
+        res.send(result)
     })
 })
 
