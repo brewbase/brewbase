@@ -588,6 +588,7 @@ a {
 
     .cardHolderContainer {
         display: flex;
+        height: 103%;
     }
 
 
