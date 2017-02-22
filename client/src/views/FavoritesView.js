@@ -12,11 +12,23 @@ class FavoritesView extends React.Component {
             <div>
                 <DesktopNavBar />
                 <ConnectedMobileNavBar />
-                <ConnectedFavToggle />
                 {
-                    this.props.favorites === 'brews' ?
-                    (<FavoriteBrews />) :
-                    (<FavoriteBreweries />)
+                    !this.props.isLoggedIn ?
+                    (<p>please login</p>)
+                    :
+                    (this.props.favorites === 'brews') ?
+                    (<div>
+                        <ConnectedFavToggle />
+                        <FavoriteBrews />
+                    </div>
+                    )
+                    :
+                    (
+                    <div>
+                        <ConnectedFavToggle />
+                        <FavoriteBreweries />
+                    </div>
+                    )
                 }
             </div>
         )
@@ -25,7 +37,8 @@ class FavoritesView extends React.Component {
 
 const mapStateToProps = (state) => (
     {
-        favorites: state.favorites
+        favorites: state.favorites,
+        isLoggedIn: state.userId ? true : false
     }
 )
 
