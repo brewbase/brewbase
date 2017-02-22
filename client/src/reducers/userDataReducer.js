@@ -3,7 +3,7 @@ export default function userDataReducer(state = {}, action) {
         case "UPDATE_USER_DATA": {
          return {
           name: action.name,
-          imgUrl: action.imgurl
+          imgUrl: action.imgUrl
          }
         }
         default: {

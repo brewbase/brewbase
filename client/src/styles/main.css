@@ -430,6 +430,46 @@ a {
         color: black;
     }
 
+    .userDataContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 40vh;
+        text-align: center;
+        font-size: x-small;
+    }
+
+    .userProfilePic {
+        width: 30vw;
+        margin-top: 2vh;
+        border-radius: 50%;
+    }
+
+    .userDataContainer hr {
+        width: 40vw;
+    }
+
+    .favoritesDesc {
+        display: flex;
+        justify-content: center;
+        height: 35vh;
+    }
+
+    .logoutButton button  {
+        width: 50vw;
+        border-radius: 5px;
+        background: white;
+        color: red;
+        font-weight: 400;
+        height: 5vh;
+        font-size: 2.5vh;
+        box-shadow: 0 2px 2px -2px grey;
+}
+
+    .logoutButton {
+     display: flex;
+     justify-content: center;
+    }
 
     .headerMobile {
         background-color: #2B2B28;

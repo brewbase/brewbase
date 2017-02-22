@@ -4,6 +4,7 @@ import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
 import loginUser from '../actions/loginUser.js'
 import { connect } from 'react-redux';
 import getUserData from '../actions/getUserData.js'
+import '../styles/main.css';
 
 class ProfileView extends React.Component {
     render() {
@@ -16,9 +17,14 @@ class ProfileView extends React.Component {
                     :
                     this.props.userData.name ? null : this.props.fetchUserData(this.context.router.location.query.id)
                 }
-                <div>
-                 <h1> WELCOME </h1>
-                 {this.props.userData.name}</div>
+                <div className='userDataContainer'>
+                 <img className='userProfilePic' src={this.props.userData.imgUrl}></img>
+                 <h2> {this.props.userData.name} </h2>
+                 <hr></hr>
+                 <p> Artisan migas salvia master cleanse, gluten-free fingerstache skateboard cronut authentic hell of blog paleo mixtape. Selvage kombucha austin, normcore pork belly cronut asymmetrical tousled iPhone pour-over.</p>
+                </div>
+                <div className='favoritesDesc'> Favorite Breweries: 12 <br/><br/> Favorite Brews: 4</div>
+                <div className='logoutButton'>  <a href='//localhost:4000/logout'><button> SIGN OUT </button></a> </div>
             </div>
         )
     }
