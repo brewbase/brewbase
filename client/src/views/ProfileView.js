@@ -1,22 +1,43 @@
 import React from 'react'
 import DesktopNavBar from '../components/DesktopNavBar.js'
-import MobileNavBar from '../components/MobileNavBar.js'
-import axios from 'axios';
+import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
+import loginUser from '../actions/loginUser.js'
+import { connect } from 'react-redux'
 
-// let response
-function showProfile() {
-    axios.get('/users/facebook%7C10154619025621865#_=_').then((response) => console.log(response))
+class ProfileView extends React.Component {
+    render() {
+        return (
+            <div>
+                <DesktopNavBar/>
+                <ConnectedMobileNavBar/>
+                {
+                    this.context.router.location.query.id && !this.props.isLoggedIn ? this.props.login(this.context.router.location.query.id)
+                    :
+                    null
+                }
+            </div>
+        )
+    }
 }
 
-const ProfileView = module.exports = (props) => (
-    <div>
-        <DesktopNavBar/>
-        <MobileNavBar/>
-        <button onClick={() => showProfile()}>CLICK ME</button>
-        <div></div>
+ProfileView.contextTypes = {
+    router: React.PropTypes.object
+}
 
-    </div>
-);
+const mapStateToProps = (state) => (
+    {
+        isLoggedIn: state.userId ? true : false
+    }
+)
 
-// const ConnectedProfileView = connect(mapStateToProps)(ProfileView)
+const mapDispatchToProps = (dispatch) => (
+    {
+        login: (userId) => {
+            dispatch(loginUser(userId))
+        }
+    }
+)
+
+ProfileView = connect(mapStateToProps, mapDispatchToProps)(ProfileView)
+
 export default ProfileView

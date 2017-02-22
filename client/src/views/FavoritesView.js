@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import DesktopNavBar from '../components/DesktopNavBar.js'
-import MobileNavBar from '../components/MobileNavBar.js'
+import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
 import ConnectedFavToggle from '../containers/ConnectedFavToggle.js'
 import FavoriteBreweries from '../containers/FavoriteBreweries.js'
 import FavoriteBrews from '../containers/FavoriteBrews.js'
@@ -11,11 +11,13 @@ class FavoritesView extends React.Component {
         return (
             <div>
                 <DesktopNavBar />
-                <MobileNavBar />
+                <ConnectedMobileNavBar />
                 <ConnectedFavToggle />
-                {this.props.favorites === 'brews' ?
-                (<FavoriteBrews />) :
-                (<FavoriteBreweries />)}
+                {
+                    this.props.favorites === 'brews' ?
+                    (<FavoriteBrews />) :
+                    (<FavoriteBreweries />)
+                }
             </div>
         )
     }
