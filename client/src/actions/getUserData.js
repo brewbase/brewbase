@@ -5,7 +5,8 @@ export default function getUserData(userId) {
         return fetch(`/users/${userId}`)
         .then(response => response.json())
         .then(json => {
-         dispatch(updateUserData(json))
+            console.log(json, 'this is the json from user data');
+            dispatch(updateUserData(json))
         })
     }
 }

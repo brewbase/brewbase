@@ -39,7 +39,7 @@ const Brewery = (props) => {
                 </div>
                 <i
                     className='material-icons favStar'
-                    onClick={() => props.onStarClick(props.brewery)}
+                    onClick={() => {props.isFavorited ?  props.onUnfavoriteStarClick(props.brewery) :  props.onFavoriteStarClick(props.brewery)}}
                 >
                     {props.isFavorited ? 'star' : 'star_border'}
                 </i>

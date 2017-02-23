@@ -1,2 +1,2 @@
 SELECT * FROM theuser
-WHERE auth0id = $1
+where auth0id = $1
