@@ -1,12 +1,3 @@
-.auth0-lock-body-content {
-    max-height: 55vh!important;
-    min-height: 55vh!important;
-    display: flex!important;
-    align-items: center!important;
-    background-color: rgba(0, 0, 0, 0)!important;
-    background-blend-mode: overlay!important;
-    justify-content: center!important;
-}
 
 .auth0-lock-content {
     width: 75vw!important;
@@ -24,20 +15,12 @@
     color: white!important;
 }
 
-.auth0-lock-cred-pane {
-    background: url(https://images.unsplash.com/photo-1471421298428-1513ab720a8e?dpr=1&auto=format&fit=crop&w=1199&h=1810&q=80&cs=tinysrgb&crop=)!important;
-    background-size: cover!important;
-    background-color: rgba(0, 0, 0, 0.5)!important;
-    background-blend-mode: overlay!important;
-}
+
 
 .auth0-lock.auth0-lock .auth0-lock-header-bg {
     display: none!important;
 }
 
-.auth0-lock-header {
-    height: 30vh!important;
-}
 
 .auth0-lock-name {
     color: white!important;
@@ -54,10 +37,7 @@
     background: transparent!important;
 }
 
-.auth0-lock.auth0-lock .auth0-lock-header-logo {
-    width: 35vw!important;
-    height: 20vh!important;
-}
+
 
 input {
     background-color: rgba(0, 0, 0, 0.5)!important;
@@ -68,12 +48,6 @@ input {
     background-color: rgba(0, 0, 0, 0.5)!important;
 }
 
-.auth0-lock.auth0-lock .auth0-global-message.auth0-global-message-error {
-    position: absolute!important;
-    width: 100vw!important;
-    padding: 0!important;
-    margin-top: -2vh!important;
-}
 
 .auth0-lock.auth0-lock .auth0-lock-tabs li.auth0-lock-tabs-current {
     box-shadow: 0px 0px 15px 2px rgba(215, 231, 245, 0.97)!important;
@@ -81,4 +55,89 @@ input {
 
 .auth0-lock.auth0-lock .auth0-lock-tabs {
  box-shadow: none!important;
+}
+
+
+/* ----------------------------- */
+/* For devices larger than 484px */
+@media(min-width: 485px) {
+.auth0-lock.auth0-lock .auth0-lock-header-logo {
+     width: 15vh!important;
+     height: 15vh!important;
+     margin: 0 0 20px!important;
+ }
+
+ .auth0-lock.auth0-lock .auth0-lock-cred-pane {
+  height: 65vh!important;
+  background: url(https://images.unsplash.com/photo-1471421298428-1513ab720a8e?dpr=1&auto=format&fit=crop&w=1199&h=1810&q=80&cs=tinysrgb&crop=)!important;
+  background-size: cover!important;
+  background-color: rgba(0, 0, 0, 0.5)!important;
+  background-blend-mode: overlay!important;
+ }
+
+ .auth0-lock-header {
+     height: 20vh!important;
+ }
+
+ .auth0-lock-body-content {
+     max-height: 55vh!important;
+     min-height: 40vh!important;
+     display: flex!important;
+     align-items: center!important;
+     background-color: rgba(0, 0, 0, 0)!important;
+     background-blend-mode: overlay!important;
+     justify-content: center!important;
+ }
+ .auth0-lock.auth0-lock .auth0-lock-submit {
+  height: 5vh!important;
+  padding: 5px!important;
+  display: flex!important;
+  justify-content: center!important;
+ }
+
+ .auth0-lock.auth0-lock .auth0-global-message.auth0-global-message-error {
+     position: absolute!important;
+     width: 100%!important;
+     padding: 0!important;
+     margin-top: -2vh!important;
+ }
+
+}
+
+/* ------------------------------ */
+/* For devices smaller than 484px */
+@media(max-width: 484px) {
+ .auth0-lock.auth0-lock .auth0-lock-header-logo {
+     width: 38vw!important;
+     height: 20vh!important;
+ }
+
+ .auth0-lock-cred-pane {
+     background: url(https://images.unsplash.com/photo-1471421298428-1513ab720a8e?dpr=1&auto=format&fit=crop&w=1199&h=1810&q=80&cs=tinysrgb&crop=)!important;
+     background-size: cover!important;
+     background-color: rgba(0, 0, 0, 0.5)!important;
+     background-blend-mode: overlay!important;
+ }
+
+ .auth0-lock-header {
+     height: 30vh!important;
+ }
+
+ .auth0-lock-body-content {
+     max-height: 55vh!important;
+     min-height: 55vh!important;
+     display: flex!important;
+     align-items: center!important;
+     background-color: rgba(0, 0, 0, 0)!important;
+     background-blend-mode: overlay!important;
+     justify-content: center!important;
+ }
+
+ .auth0-lock.auth0-lock .auth0-global-message.auth0-global-message-error {
+     position: absolute!important;
+     width: 100vw!important;
+     padding: 0!important;
+     margin-top: -2vh!important;
+ }
+
 }
