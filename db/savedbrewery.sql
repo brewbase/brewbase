@@ -1,5 +1,5 @@
 CREATE TABLE savedbrewery(
-    id VARCHAR(255),
+    id VARCHAR(15),
     breweryname TEXT,
     website TEXT,
     imageurl TEXT,
