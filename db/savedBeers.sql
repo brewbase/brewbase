@@ -1,10 +1,10 @@
 CREATE TABLE savedbeer (
-    id SERIAL PRIMARY KEY,
+    id VARCHAR(255),
     description TEXT,
     imageurl TEXT,
-    name TEXT,
+    beername TEXT,
     type TEXT,
     breweryId VARCHAR(20),
-    userId VARCHAR(255),
-    CONSTRAINT fk_savedbeer_user FOREIGN KEY (userId) REFERENCES theuser("auth0id")
+    userid CHARACTER VARYING(255),
+    CONSTRAINT fk_savedbeer_user FOREIGN KEY (userid) REFERENCES theuser("auth0id")
 );

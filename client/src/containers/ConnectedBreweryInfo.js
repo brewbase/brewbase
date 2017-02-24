@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import BreweryInfo from '../components/BreweryInfo.js'
 import getBrews from '../actions/getBrews.js'
-import updateFavoriteBrews from '../actions/updateFavoriteBrews.js'
+import postingFavoriteBeer from '../actions/postingFavoriteBeer.js'
 import { getFavoriteBrewIds } from '../reducers/selectors.js'
 
 class ConnectedBreweryInfo extends React.Component {
@@ -38,8 +38,8 @@ const mapDispatchToProps = (dispatch) => (
         fetchBrews: (id) => {
             dispatch(getBrews(id))
         },
-        onStarClick: (brew) => {
-            dispatch(updateFavoriteBrews(brew))
+        onStarClick: (beer) => {
+            dispatch(postingFavoriteBeer(beer))
         }
     }
 )
