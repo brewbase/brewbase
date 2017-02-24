@@ -2,6 +2,7 @@
 
 # configuration
 config.js
+./client/config.js
 
 # dependencies
 node_modules
