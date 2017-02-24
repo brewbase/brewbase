@@ -9,8 +9,8 @@ import { getFavoriteBreweryIds } from '../reducers/selectors.js'
 import '../styles/main.css'
 
 class FavoriteBreweries extends React.Component {
-    componentDidMount(userId) {
-        this.props.getFavoriteBreweries(userId)
+    componentDidMount() {
+        this.props.getFavoriteBreweries(this.props.userId)
     }
     render() {
         return (

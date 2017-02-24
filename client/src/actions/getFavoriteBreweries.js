@@ -7,9 +7,6 @@ export default function getFavoriteBreweries(userId) {
             method: 'get',
             url: `/api/getFavoriteBreweries/${userId}`
         })
-            .then(response => response.json)
-            .then(json => {
-                dispatch(updateFavoriteBreweries(json))
-            })
+        .then(response => dispatch(updateFavoriteBreweries(response.data)))
     }
 }
