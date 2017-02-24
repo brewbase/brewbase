@@ -1,2 +1,2 @@
-DELETE FROM savedbrewery
-where id = $1
+delete from savedbrewery
+where breweryid = $1 and userid = $2

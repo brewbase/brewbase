@@ -18,6 +18,7 @@ class Breweries extends React.Component {
                 onUnfavoriteStarClick={this.props.onUnfavoriteStarClick}
                 brewery={b}
                 isFavorited={this.props.favoriteBreweryIds.includes(b.brewery.id)}
+                userid={this.props.userid}
             />
         ))
     )
@@ -52,7 +53,8 @@ const mapStateToProps = (state) => (
         error: state.breweriesError,
         fetching: state.fetchingBreweries,
         input: state.searchInput,
-        favoriteBreweryIds: getFavoriteBreweryIds(state)
+        favoriteBreweryIds: getFavoriteBreweryIds(state),
+        userid: state.userId
     }
 )
 
@@ -61,11 +63,11 @@ const mapDispatchToProps = (dispatch) => (
         onBreweryClick: (brewery) => {
             dispatch(updateActiveBrewery(brewery))
         },
-        onFavoriteStarClick: (brewery) => {
-            dispatch(postingFavoriteBrewery(brewery))
+        onFavoriteStarClick: (brewery, userid) => {
+            dispatch(postingFavoriteBrewery(brewery, userid))
         },
-        onUnfavoriteStarClick: (brewery) => {
-            dispatch(deletingFavoriteBrewery(brewery))
+        onUnfavoriteStarClick: (brewery, userid) => {
+            dispatch(deletingFavoriteBrewery(brewery, userid))
         }
     }
 )

@@ -23,6 +23,7 @@ class FavoriteBreweries extends React.Component {
                         onUnfavoriteStarClick={this.props.onUnfavoriteStarClick}
                         brewery={b}
                         isFavorited={this.props.favoriteBreweryIds.includes(b.brewery.id)}
+                        userid={this.props.userId}
                     />
                 ))}
                 </div>
@@ -44,11 +45,11 @@ const mapDispatchToProps = (dispatch) => (
         onBreweryClick: (brewery) => {
             dispatch(updateActiveBrewery(brewery))
         },
-        onUnfavoriteStarClick: (brewery) => {
-            dispatch(deletingFavoriteBrewery(brewery))
+        onUnfavoriteStarClick: (brewery, userid) => {
+            dispatch(deletingFavoriteBrewery(brewery, userid))
         },
-        getFavoriteBreweries: (userId) => {
-            dispatch(getFavoriteBreweries(userId))
+        getFavoriteBreweries: (userid) => {
+            dispatch(getFavoriteBreweries(userid))
         }
     }
 )

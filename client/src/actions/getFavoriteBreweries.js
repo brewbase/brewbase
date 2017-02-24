@@ -1,12 +1,16 @@
 import updateFavoriteBreweries from './updateFavoriteBreweries.js';
 import axios from 'axios';
 
-export default function getFavoriteBreweries(userId) {
+export default function getFavoriteBreweries(userid) {
     return function(dispatch) {
         return axios({
-            method: 'get',
-            url: `/api/getFavoriteBreweries/${userId}`
+            method: 'post',
+            url: `/api/getFavoriteBreweries`,
+            data: {userid}
         })
-        .then(response => dispatch(updateFavoriteBreweries(response.data)))
+        .then(response => {
+            const breweries = response.data.map(b => JSON.parse(b.brewerystring))
+            dispatch(updateFavoriteBreweries(breweries))
+        })
     }
 }

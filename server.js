@@ -93,9 +93,8 @@ app.get('/users/:auth0id', (req, res) => {
 })
 
 //ENDPOINTS FOR BREWBASE
-app.get('/api/getFavoriteBreweries/:userid', (req, res) => {
-    db.read_fav_brewery([req.params.userid], (err, result) =>{
-        console.log(result, 'this is the result');
+app.post('/api/getFavoriteBreweries', (req, res) => {
+    db.read_fav_brewery([req.body.userid], (err, result) => {
         if(err){
             res.status(500).json(err);
         }
@@ -105,8 +104,8 @@ app.get('/api/getFavoriteBreweries/:userid', (req, res) => {
     })
 });
 
-app.get('/api/getFavoriteBrews/:userid', (req, res) => {
-    db.read_fav_beer([req.params.userid], (err, result) =>{
+app.get('/api/getFavoriteBrews', (req, res) => {
+    db.read_fav_beer([req.body.userid], (err, result) =>{
         if(err){
             res.status(500).json(err);
         }
@@ -117,12 +116,12 @@ app.get('/api/getFavoriteBrews/:userid', (req, res) => {
 });
 
 app.post('/api/favoriteBreweries', (req, res) => {
-    db.add_brewery([req.body.brewery.name, req.body.brewery.images.squareMedium, req.body.brewery.id, req.user.id], (err, result) =>{
-        if(err){
+    db.add_brewery([req.body.brewerystring, req.body.userid, req.body.breweryid], (err, result) => {
+        if (err) {
             console.log(err, 'this is the error');
             res.status(500).json(err);
         }
-        else{
+        else {
             res.send(result);
         }
     })
@@ -140,16 +139,14 @@ app.post('/api/favoriteBrews', (req, res) => {
     })
 });
 
-app.delete('/api/deleteBreweries/:id', (req, res) => {
-    db.delete_brewery([req.params.id], (err, result) =>{
-        if(err){
+app.delete('/api/deleteBreweries', (req, res) => {
+    db.delete_brewery([req.body.breweryid, req.body.userid], (err, result) =>{
+        if (err) {
             res.status(500).json(err);
-        }
-        else{
+        } else {
             res.send(result);
         }
     })
-
 });
 
 app.delete('/api/deleteBrews/:id', (req, res) => {
