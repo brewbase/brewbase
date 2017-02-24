@@ -1,10 +1,9 @@
 import React from 'react'
 import {Link} from 'react-router'
 import '../styles/main.css'
-
+/* eslint-disable */
 const Brewery = (props) => {
     let image
-    // eslint-disable-next-line
     props.brewery.brewery.images ? image = props.brewery.brewery.images.squareMedium : null
     return (
             <div className='cardContainer'>
