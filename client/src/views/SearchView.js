@@ -1,11 +1,11 @@
 import React from 'react'
 import ConnectedSearchBar from '../containers/ConnectedSearchBar.js'
-import DesktopNavBar from '../components/DesktopNavBar.js'
+import ConnectedDesktopNavBar from '../containers/ConnectedDesktopNavBar.js'
 import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
 
 const SearchView = (props) => (
     <div>
-        <DesktopNavBar />
+        <ConnectedDesktopNavBar />
         <ConnectedMobileNavBar />
         <div className="searchPage">
             <div className="searchBox">

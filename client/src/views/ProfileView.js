@@ -1,5 +1,5 @@
 import React from 'react'
-import DesktopNavBar from '../components/DesktopNavBar.js'
+import ConnectedDesktopNavBar from '../containers/ConnectedDesktopNavBar.js'
 import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
 import loginUser from '../actions/loginUser.js'
 import { connect } from 'react-redux';
@@ -7,11 +7,15 @@ import getUserData from '../actions/getUserData.js'
 import '../styles/main.css';
 
 class ProfileView extends React.Component {
+    componentWillMount() {
+        console.log(this.state)
+    }
+
     render() {
         return (
             <div>
-                <DesktopNavBar/>
-                <ConnectedMobileNavBar/>
+                <ConnectedDesktopNavBar />
+                <ConnectedMobileNavBar />
                 {
                     this.context.router.location.query.id && !this.props.isLoggedIn ? this.props.login(this.context.router.location.query.id)
                     :
