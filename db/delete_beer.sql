@@ -1,2 +1,2 @@
 DELETE FROM savedbeer
-WHERE id = $1
+WHERE beerid = $1 and userid = $2

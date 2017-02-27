@@ -49,7 +49,9 @@ const BreweryInfo = (props) => {
         <Brews
             brews={props.brews}
             favoriteBrewIds={props.favoriteBrewIds}
-            onStarClick={props.onStarClick}
+            onFavoriteStarClick={props.onFavoriteStarClick}
+            onUnfavoriteStarClick={props.onUnfavoriteStarClick}
+            userId={props.userId}
         />
     </div>
 )}

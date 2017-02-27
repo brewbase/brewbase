@@ -1,3 +1,3 @@
-INSERT INTO savedbeer (beername, imageurl, id, userid)
-VALUES ($1, $2, $3, $4)
-RETURNING "beername", "imageurl", "id", "userid"
+INSERT INTO savedbeer (beerstring, userid, beerid)
+VALUES ($1, $2, $3)
+RETURNING "beerstring", "userid", "beerid"

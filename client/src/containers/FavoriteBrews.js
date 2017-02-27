@@ -1,19 +1,23 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Brews from '../components/Brews.js'
-import updateFavoriteBrews from '../actions/updateFavoriteBrews.js'
+import deletingFavoriteBeer from '../actions/deletingFavoriteBeer.js'
+import getFavoriteBrews from '../actions/getFavoriteBrews.js'
 import { getFavoriteBrewIds } from '../reducers/selectors.js'
 import '../styles/main.css'
 
 class FavoriteBrews extends React.Component {
+    componentDidMount() {
+        this.props.getFavoriteBrews(this.props.userId)
+    }
     render() {
         return (
-
             <div className='breweryResultsContainerFavorites'>
                 <Brews
-                    onStarClick={this.props.onStarClick}
+                    onUnfavoriteStarClick={this.props.onUnfavoriteStarClick}
                     brews={this.props.favoriteBrews}
                     favoriteBrewIds={this.props.favoriteBrewIds}
+                    userId={this.props.userId}
                 />
             </div>
         );
@@ -23,14 +27,18 @@ class FavoriteBrews extends React.Component {
 const mapStateToProps = (state) => (
     {
         favoriteBrews: state.favoriteBrews,
-        favoriteBrewIds: getFavoriteBrewIds(state)
+        favoriteBrewIds: getFavoriteBrewIds(state),
+        userId: state.userId
     }
 )
 
 const mapDispatchToProps = (dispatch) => (
     {
-        onStarClick: (brewery) => {
-            dispatch(updateFavoriteBrews(brewery))
+        onUnfavoriteStarClick: (brew, userId) => {
+            dispatch(deletingFavoriteBeer(brew, userId))
+        },
+        getFavoriteBrews: (userid) => {
+            dispatch(getFavoriteBrews(userid))
         }
     }
 )

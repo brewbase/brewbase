@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import BreweryInfo from '../components/BreweryInfo.js'
 import getBrews from '../actions/getBrews.js'
 import postingFavoriteBeer from '../actions/postingFavoriteBeer.js'
+import deletingFavoriteBeer from '../actions/deletingFavoriteBeer.js'
 import { getFavoriteBrewIds } from '../reducers/selectors.js'
 
 class ConnectedBreweryInfo extends React.Component {
@@ -17,7 +18,9 @@ class ConnectedBreweryInfo extends React.Component {
                 fetching={this.props.fetching}
                 error={this.props.error}
                 favoriteBrewIds={this.props.favoriteBrewIds}
-                onStarClick={this.props.onStarClick}
+                onFavoriteStarClick={this.props.onFavoriteStarClick}
+                onUnfavoriteStarClick={this.props.onUnfavoriteStarClick}
+                userId={this.props.userId}
             />
         )
     }
@@ -29,7 +32,8 @@ const mapStateToProps = (state) => (
         brews: state.brews,
         error: state.breweriesError,
         fetching: state.fetchingBreweries,
-        favoriteBrewIds: getFavoriteBrewIds(state)
+        favoriteBrewIds: getFavoriteBrewIds(state),
+        userId: state.userId
     }
 )
 
@@ -38,8 +42,11 @@ const mapDispatchToProps = (dispatch) => (
         fetchBrews: (id) => {
             dispatch(getBrews(id))
         },
-        onStarClick: (beer) => {
-            dispatch(postingFavoriteBeer(beer))
+        onFavoriteStarClick: (beer, userId) => {
+            dispatch(postingFavoriteBeer(beer, userId))
+        },
+        onUnfavoriteStarClick: (beer, userId) => {
+            dispatch(deletingFavoriteBeer(beer, userId))
         }
     }
 )
