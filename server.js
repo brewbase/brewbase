@@ -96,21 +96,19 @@ app.get('/users/:auth0id', (req, res) => {
 //ENDPOINTS FOR BREWBASE
 app.post('/api/getFavoriteBreweries', (req, res) => {
     db.read_fav_brewery([req.body.userid], (err, result) => {
-        if(err){
+        if (err) {
             res.status(500).json(err);
-        }
-        else{
-            res.send(result);
+        } else {
+            res.send(result)
         }
     })
 });
 
-app.get('/api/getFavoriteBrews', (req, res) => {
-    db.read_fav_beer([req.body.userid], (err, result) =>{
-        if(err){
+app.post('/api/getFavoriteBrews', (req, res) => {
+    db.read_fav_beer([req.body.userid], (err, result) => {
+        if (err) {
             res.status(500).json(err);
-        }
-        else{
+        } else {
             res.send(result)
         }
     })
@@ -119,28 +117,25 @@ app.get('/api/getFavoriteBrews', (req, res) => {
 app.post('/api/favoriteBreweries', (req, res) => {
     db.add_brewery([req.body.brewerystring, req.body.userid, req.body.breweryid], (err, result) => {
         if (err) {
-            console.log(err, 'this is the error');
             res.status(500).json(err);
-        }
-        else {
+        } else {
             res.send(result);
         }
     })
 });
 
 app.post('/api/favoriteBrews', (req, res) => {
-    db.add_beer([req.body.name, req.body.labels.medium, req.body.id, req.user.id], (err, result) =>{
-        if(err){
+    db.add_beer([req.body.beerstring, req.body.userid, req.body.beerid], (err, result) => {
+        if (err) {
             console.log(err, 'this is the error for user id');
             res.status(500).json(err);
-        }
-        else{
+        } else {
             res.send(result);
         }
     })
 });
 
-app.delete('/api/deleteBreweries', (req, res) => {
+app.delete('/api/deleteBrewery', (req, res) => {
     db.delete_brewery([req.body.breweryid, req.body.userid], (err, result) =>{
         if (err) {
             res.status(500).json(err);
@@ -150,12 +145,11 @@ app.delete('/api/deleteBreweries', (req, res) => {
     })
 });
 
-app.delete('/api/deleteBrews/:id', (req, res) => {
-    db.delete_beer([req.params], (err, result) =>{
-        if(err){
+app.delete('/api/deleteBrew', (req, res) => {
+    db.delete_beer([req.body.beerid, req.body.userid], (err, result) => {
+        if (err) {
             res.status(500).json(err);
-        }
-        else{
+        } else {
             res.send(result);
         }
     })

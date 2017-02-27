@@ -5,6 +5,8 @@ import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
 import ConnectedFavToggle from '../containers/ConnectedFavToggle.js'
 import FavoriteBreweries from '../containers/FavoriteBreweries.js'
 import FavoriteBrews from '../containers/FavoriteBrews.js'
+import logo from '../media/logo.png'
+import '../styles/main.css'
 
 class FavoritesView extends React.Component {
     render() {
@@ -14,21 +16,21 @@ class FavoritesView extends React.Component {
                 <ConnectedMobileNavBar />
                 {
                     !this.props.isLoggedIn ?
-                    (<p>please login</p>)
+                    (<div className="splashPage">
+                        <img src={logo} alt="logo" className="logo"></img>
+                        <h3 style={{color: 'white', textAlign: 'center'}}>Please login to view your favorite craft beers and breweries!</h3>
+                    </div>)
                     :
                     (this.props.favorites === 'brews') ?
                     (<div>
                         <ConnectedFavToggle />
                         <FavoriteBrews />
-                    </div>
-                    )
+                    </div>)
                     :
-                    (
-                    <div>
+                    (<div>
                         <ConnectedFavToggle />
                         <FavoriteBreweries />
-                    </div>
-                    )
+                    </div>)
                 }
             </div>
         )

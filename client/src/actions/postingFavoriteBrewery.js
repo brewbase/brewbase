@@ -10,6 +10,6 @@ export default function postingFavoriteBrewery(brewery, userid) {
             url: '/api/favoriteBreweries',
             data: {brewerystring, userid, breweryid: brewery.brewery.id}
         })
-            .then(response => console.log(response, 'this is the response from fav breweries'))
+        .then(response => console.log(response, 'this is the response from fav breweries'))
     }
 }

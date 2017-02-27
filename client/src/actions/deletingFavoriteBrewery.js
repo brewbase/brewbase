@@ -6,7 +6,7 @@ export default function deletingFavoriteBrewery(brewery, userid) {
         dispatch(updateFavoriteBreweries(brewery))
         return axios({
             method: 'delete',
-            url: `/api/deleteBreweries`,
+            url: `/api/deleteBrewery`,
             data: {breweryid: brewery.brewery.id, userid}
         })
         .then(response => console.log(response, 'delete a brewery'))

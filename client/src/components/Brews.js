@@ -21,12 +21,21 @@ const Brews = (props) => (
                             {b.name}
                         </h1>
                     </div>
-                    <i
+                    {props.favoriteBrewIds.includes(b.id) ?
+                    (<i
                         className='material-icons favStar'
-                        onClick={() => props.onStarClick(b)}
+                        onClick={() => props.onUnfavoriteStarClick(b, props.userId)}
                     >
-                        {props.favoriteBrewIds.includes(b.id) ? 'star' : 'star_border'}
-                    </i>
+                        star
+                    </i>)
+                    :
+                    (<i
+                        className='material-icons favStar'
+                        onClick={() => props.onFavoriteStarClick(b, props.userId)}
+                    >
+                        star_border
+                    </i>)
+                    }
                 </div>
             )
         })}
