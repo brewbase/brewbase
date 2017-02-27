@@ -1,7 +1,7 @@
 import React from 'react'
 import Brews from './Brews.js'
 import '../styles/main.css'
-
+/* eslint-disable */
 const BreweryInfo = (props) => {
     let lat = props.brewery.latitude,
         long = props.brewery.longitude,

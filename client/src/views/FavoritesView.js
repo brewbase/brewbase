@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import DesktopNavBar from '../components/DesktopNavBar.js'
+import ConnectedDesktopNavBar from '../containers/ConnectedDesktopNavBar.js'
 import ConnectedMobileNavBar from '../containers/ConnectedMobileNavBar.js'
 import ConnectedFavToggle from '../containers/ConnectedFavToggle.js'
 import FavoriteBreweries from '../containers/FavoriteBreweries.js'
@@ -12,7 +12,7 @@ class FavoritesView extends React.Component {
     render() {
         return (
             <div>
-                <DesktopNavBar />
+                <ConnectedDesktopNavBar />
                 <ConnectedMobileNavBar />
                 {
                     !this.props.isLoggedIn ?

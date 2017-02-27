@@ -1,5 +1,5 @@
 import React from 'react'
-
+/* eslint-disable */
 const Brews = (props) => (
     <div className='cardHolderContainer'>
         {props.brews.map((b, i) => {

@@ -21,6 +21,7 @@ var strategy = new Auth0Strategy({
     // accessToken is the token to call Auth0 API (not needed in the most cases)
     // extraParams.id_token has the JSON Web Token
     // profile has all the information from the user
+    // console.log(profile)
     return done(null, profile, extraParams);
 });
 
@@ -73,7 +74,7 @@ app.get('/callback', passport.authenticate('auth0', {failureRedirect: '/url-if-s
 });
 app.get('/user', function(req, res, next) {
     db.add_user([
-        req.user.id, req.user.displayName, req.user.picture
+        req.user.id, req.user.displayName, req.user._json.picture_large
     ], (err, result) => {
         if (err) {
             res.redirect('/user/' + req.user.id);
