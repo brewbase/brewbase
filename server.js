@@ -34,10 +34,6 @@ passport.deserializeUser(function(user, done) {
 });
 // END PASSPORT CONFIGURATION
 
-// const fav_beer_ctrl = require('./db/controllers/favoriteBeer');
-// const fav_brewery_ctrl = require('./db/controllers/favoriteBrewery');
-// const user_ctrl = require('./db/controllers/userCtrl.js');
-
 const app = module.exports = express();
 
 app.use(express.static(path.join(__dirname + '/views')));
@@ -87,6 +83,7 @@ app.get('/user', function(req, res, next) {
         }
     });
 })
+
 app.get('/user/:auth0id', ensureLoggedIn, (req, res) => {
     res.redirect('http://localhost:3000/profile?id=' + req.params.auth0id);
 })
@@ -97,14 +94,72 @@ app.get('/users/:auth0id', (req, res) => {
 })
 
 //ENDPOINTS FOR BREWBASE
-// app.get('/api/favoriteBreweries', fav_brewery_ctrl.index);
-// app.get('/api/favoriteBrews', fav_beer_ctrl.index);
-//
-// app.post('/api/favoriteBreweries', fav_brewery_ctrl.create);
-// app.post('/api/favoriteBrews', fav_beer_ctrl.create);
-//
-// app.delete('/api/favoriteBreweries/:breweryId', fav_brewery_ctrl.destroy);
-// app.delete('/api/favoriteBrews/:beerId', fav_beer_ctrl.destroy);
+app.post('/api/getFavoriteBreweries', (req, res) => {
+    db.read_fav_brewery([req.body.userid], (err, result) => {
+        if(err){
+            res.status(500).json(err);
+        }
+        else{
+            res.send(result);
+        }
+    })
+});
+
+app.get('/api/getFavoriteBrews', (req, res) => {
+    db.read_fav_beer([req.body.userid], (err, result) =>{
+        if(err){
+            res.status(500).json(err);
+        }
+        else{
+            res.send(result)
+        }
+    })
+});
+
+app.post('/api/favoriteBreweries', (req, res) => {
+    db.add_brewery([req.body.brewerystring, req.body.userid, req.body.breweryid], (err, result) => {
+        if (err) {
+            console.log(err, 'this is the error');
+            res.status(500).json(err);
+        }
+        else {
+            res.send(result);
+        }
+    })
+});
+
+app.post('/api/favoriteBrews', (req, res) => {
+    db.add_beer([req.body.name, req.body.labels.medium, req.body.id, req.user.id], (err, result) =>{
+        if(err){
+            console.log(err, 'this is the error for user id');
+            res.status(500).json(err);
+        }
+        else{
+            res.send(result);
+        }
+    })
+});
+
+app.delete('/api/deleteBreweries', (req, res) => {
+    db.delete_brewery([req.body.breweryid, req.body.userid], (err, result) =>{
+        if (err) {
+            res.status(500).json(err);
+        } else {
+            res.send(result);
+        }
+    })
+});
+
+app.delete('/api/deleteBrews/:id', (req, res) => {
+    db.delete_beer([req.params], (err, result) =>{
+        if(err){
+            res.status(500).json(err);
+        }
+        else{
+            res.send(result);
+        }
+    })
+});
 
 app.listen(4000, () => {
     console.log("App is listening on port 4000");
