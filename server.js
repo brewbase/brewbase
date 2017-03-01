@@ -158,7 +158,7 @@ app.delete('/api/deleteBrew', (req, res) => {
 
 //// BREWERYDb NODE ENDPOINTS ////
 
-const brewdb = new BreweryDb('1168087dc16a437c599b8e48ca2d7c91');
+const brewdb = new BreweryDb(config.key);
 
 app.post('/brewdb/state',(req, res) => {
     console.log(req.body.input);
@@ -184,6 +184,17 @@ app.post('/brewdb/city',(req, res) => {
     })
 });
 
+app.post('/brewdb/geopoint',(req, res) => {
+    console.log(req.body.input);
+    brewdb.geopoint.find({lat: req.body.input.lat, lng: req.body.input.lng, radius: 100 }, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(500).json(err);
+        } else {
+            res.send(result)
+        }
+    })
+});
 
 
 
