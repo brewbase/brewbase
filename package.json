@@ -21,6 +21,7 @@
   "dependencies": {
     "axios": "^0.15.3",
     "body-parser": "^1.16.1",
+    "brewerydb-node": "^0.0.1",
     "connect-ensure-login": "^0.1.1",
     "cors": "^2.8.1",
     "express": "^4.14.1",

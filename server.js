@@ -10,6 +10,7 @@ const router = express.Router();
 const session = require('express-session');
 var cors = require('cors');
 var path = require('path');
+const BreweryDb = require('brewerydb-node')
 
 // PASSPORT CONFIGURATION FOR AUTH0
 var strategy = new Auth0Strategy({
@@ -154,6 +155,52 @@ app.delete('/api/deleteBrew', (req, res) => {
         }
     })
 });
+
+//// BREWERYDb NODE ENDPOINTS ////
+
+const brewdb = new BreweryDb(config.key);
+
+app.post('/brewdb/state',(req, res) => {
+    console.log(req.body.input);
+    brewdb.location.find({region: req.body.input }, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(500).json(err);
+        } else {
+            res.send(result)
+        }
+    })
+});
+
+app.post('/brewdb/city',(req, res) => {
+    console.log(req.body.input);
+    brewdb.location.find({locality: req.body.input }, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(500).json(err);
+        } else {
+            res.send(result)
+        }
+    })
+});
+
+app.post('/brewdb/geopoint',(req, res) => {
+    console.log(req.body.input);
+    brewdb.geopoint.find({lat: req.body.input.lat, lng: req.body.input.lng, radius: 100 }, (err, result) => {
+        if (err) {
+            console.log(err)
+            res.status(500).json(err);
+        } else {
+            res.send(result)
+        }
+    })
+});
+
+
+
+
+
+
 
 app.listen(4000, () => {
     console.log("App is listening on port 4000");
