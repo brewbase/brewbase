@@ -196,6 +196,17 @@ app.post('/brewdb/geopoint',(req, res) => {
     })
 });
 
+app.post('/brewdb/beers',(req, res) => { 
+    console.log(req.body.id); 
+    brewdb.breweries.getBeers(req.body.id, {}, (err, result) => { 
+        if (err) { 
+            console.log(err) 
+            res.status(500).json(err); 
+        } else { 
+            res.send(result) 
+        } 
+    })
+ });
 
 
 
