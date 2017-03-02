@@ -1,6 +1,7 @@
 import startFetchingBrews from './startFetchingBrews.js'
 import receiveBrews from './receiveBrews.js'
 import brewsError from './brewsError.js'
+import axios from 'axios'
 
 export default function getBrews(id) {
     return function(dispatch) {
