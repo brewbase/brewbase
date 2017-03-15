@@ -10,7 +10,7 @@ const router = express.Router();
 const session = require('express-session');
 var cors = require('cors');
 var path = require('path');
-const BreweryDb = require('brewerydb-node')
+const BreweryDb = require('./brewerydb')
 
 // PASSPORT CONFIGURATION FOR AUTH0
 var strategy = new Auth0Strategy({
